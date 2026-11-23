@@ -9,7 +9,7 @@
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-html, body { overflow-x: clip; }
+html, body, main { overflow-x: clip; }
 body { background: var(--black); color: var(--white); font-family: var(--font); line-height: 1.5; -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
@@ -19,7 +19,7 @@ a { color: inherit; }
 .nav { position: fixed; inset: 0 0 auto 0; z-index: 10; display: flex; justify-content: space-between; align-items: center;
   padding: 14px clamp(16px, 4vw, 48px); background: rgba(10,10,10,.85); backdrop-filter: blur(8px); border-bottom: 2px solid #1c1c1c; }
 .nav__logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 900; letter-spacing: .04em; font-size: 1.1rem; }
-.nav__logo img { height: 42px; width: auto; transition: transform .2s; }
+.nav__logo img { height: 42px; width: auto; flex-shrink: 0; transition: transform .2s; }
 .nav__logo:hover img { transform: rotate(-3deg) scale(1.05); }
 .nav__links { display: flex; align-items: center; gap: clamp(12px, 3vw, 32px); }
 .nav__links a { text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: .85rem; letter-spacing: .08em; position: relative; }
