@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-title-en="Vile Imp — Independent Game Studio" data-title-pt="Vile Imp — Estúdio Independente de Games">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,9 +15,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="gear" viewBox="0 0 100 100"><path d="M43 4h14l2 12a35 35 0 0 1 9 4l10-7 10 10-7 10a35 35 0 0 1 4 9l12 2v14l-12 2a35 35 0 0 1-4 9l7 10-10 10-10-7a35 35 0 0 1-9 4l-2 12H43l-2-12a35 35 0 0 1-9-4l-10 7-10-10 7-10a35 35 0 0 1-4-9L3 57V43l12-2a35 35 0 0 1 4-9l-7-10 10-10 10 7a35 35 0 0 1 9-4z M50 33a17 17 0 1 0 0.01 0z" fill-rule="evenodd"/></symbol></svg>
   <header class="nav">
     <a class="nav__logo" href="#top" aria-label="Vile Imp">
       <img src="assets/logo-white.png" alt="Vile Imp" width="1548" height="828">
@@ -54,27 +55,21 @@
     <section class="section games" id="games">
       <h2 class="section__title" data-i18n="games.title">Games</h2>
 
-      <article class="feature">
+      <a class="feature" href="gearbreak.html">
         <div class="feature__art">
-          <svg class="gear" viewBox="0 0 100 100" aria-hidden="true">
-            <path d="M43 4h14l2 12a35 35 0 0 1 9 4l10-7 10 10-7 10a35 35 0 0 1 4 9l12 2v14l-12 2a35 35 0 0 1-4 9l7 10-10 10-10-7a35 35 0 0 1-9 4l-2 12H43l-2-12a35 35 0 0 1-9-4l-10 7-10-10 7-10a35 35 0 0 1-4-9L3 57V43l12-2a35 35 0 0 1 4-9l-7-10 10-10 10 7a35 35 0 0 1 9-4z M50 33a17 17 0 1 0 0.01 0z" fill-rule="evenodd"/>
-          </svg>
+          <svg class="gear" viewBox="0 0 100 100" aria-hidden="true"><use href="#gear"/></svg>
           <span class="feature__crack" aria-hidden="true"></span>
           <span class="feature__name">GEARBREAK</span>
           <span class="badge" data-i18n="games.badge">In development</span>
         </div>
         <div class="feature__body">
-          <p class="feature__kicker" data-i18n="games.kicker">Action brawler · PC</p>
+          <p class="feature__kicker" data-i18n="gb.genres">Beat 'em up · Roguelite · Isometric pixel art · Action</p>
           <h3>Gearbreak</h3>
-          <p data-i18n="games.desc">One fighter. A crew of friends. One target: <strong>the Founder</strong>. Punch your way up through his machine, gear by gear, and bring the whole thing down.</p>
-          <ul class="feature__facts">
-            <li data-i18n="games.f1">Fast, crunchy hand-to-hand combat</li>
-            <li data-i18n="games.f2">Recruit and fight alongside your friends</li>
-            <li data-i18n="games.f3">Every run ends with someone getting hit</li>
-          </ul>
-          <span class="btn btn--ghost" aria-disabled="true" data-i18n="games.soon">Coming soon</span>
+          <p class="feature__tagline" data-i18n="gb.tagline">Take the Foundry apart. Give the city back its voices.</p>
+          <p data-i18n="gb.short">Gearbreak is an isometric pixel-art beat 'em up roguelite. Launch robots into the air, juggle them, smash them into walls and into each other, and build a new fighting style every run.</p>
+          <span class="btn"><span data-i18n="games.more">Learn more</span> <span aria-hidden="true">→</span></span>
         </div>
-      </article>
+      </a>
     </section>
 
     <section class="section studio" id="studio">
@@ -103,6 +98,6 @@
     <p>© <span id="year">2026</span> Vile Imp. <span data-i18n="footer">All rights reserved. No imps were harmed.</span></p>
   </footer>
 
-  <script src="i18n.js?v=4"></script>
+  <script src="i18n.js?v=6"></script>
 </body>
 </html>

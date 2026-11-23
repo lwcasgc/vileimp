@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en" data-title-en="Gearbreak — Vile Imp" data-title-pt="Gearbreak — Vile Imp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gearbreak — Vile Imp</title>
+  <meta name="description" content="Gearbreak is an isometric pixel-art beat 'em up roguelite by Vile Imp.">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta property="og:title" content="Gearbreak — Vile Imp">
+  <meta property="og:description" content="Take the Foundry apart. Give the city back its voices.">
+  <meta property="og:image" content="assets/og.png">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=6">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="gear" viewBox="0 0 100 100"><path d="M43 4h14l2 12a35 35 0 0 1 9 4l10-7 10 10-7 10a35 35 0 0 1 4 9l12 2v14l-12 2a35 35 0 0 1-4 9l7 10-10 10-10-7a35 35 0 0 1-9 4l-2 12H43l-2-12a35 35 0 0 1-9-4l-10 7-10-10 7-10a35 35 0 0 1-4-9L3 57V43l12-2a35 35 0 0 1 4-9l-7-10 10-10 10 7a35 35 0 0 1 9-4z M50 33a17 17 0 1 0 0.01 0z" fill-rule="evenodd"/></symbol></svg>
+
+  <header class="nav">
+    <a class="nav__logo" href="index.html" aria-label="Vile Imp">
+      <img src="assets/logo-white.png" alt="Vile Imp" width="1548" height="828">
+    </a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="index.html#games" data-i18n="nav.games">Games</a>
+      <a href="index.html#studio" data-i18n="nav.studio">Studio</a>
+      <a href="index.html#contact" data-i18n="nav.contact">Contact</a>
+      <button class="lang" id="lang" type="button" aria-label="Mudar para português">
+        <span data-l="en">EN</span><span class="lang__sep">/</span><span data-l="pt">PT</span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="gb-hero">
+      <svg class="gear gb-hero__gear" viewBox="0 0 100 100" aria-hidden="true"><use href="#gear"/></svg>
+      <svg class="gear gb-hero__gear gb-hero__gear--small" viewBox="0 0 100 100" aria-hidden="true"><use href="#gear"/></svg>
+      <div class="gb-hero__inner">
+        <a class="back" href="index.html#games"><span aria-hidden="true">←</span> <span data-i18n="gb.back">All games</span></a>
+        <span class="badge badge--static" data-i18n="games.badge">In development</span>
+        <h1 class="gb-hero__title">GEARBREAK</h1>
+        <p class="gb-hero__tagline" data-i18n="gb.tagline">Take the Foundry apart. Give the city back its voices.</p>
+        <ul class="tags" aria-label="Genres">
+          <li data-i18n="gb.g1">Beat 'em up</li>
+          <li data-i18n="gb.g2">Roguelite</li>
+          <li data-i18n="gb.g3">Isometric pixel art</li>
+          <li data-i18n="gb.g4">Action</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span data-i18n="gb.marquee">LAUNCH ✦ JUGGLE ✦ WALL SPLAT ✦ PILEDRIVER ✦ GIANT SWING ✦ BODY SLAM ✦&nbsp;</span>
+        <span data-i18n="gb.marquee">LAUNCH ✦ JUGGLE ✦ WALL SPLAT ✦ PILEDRIVER ✦ GIANT SWING ✦ BODY SLAM ✦&nbsp;</span>
+      </div>
+    </div>
+
+    <section class="section gb-about">
+      <div class="gb-about__main">
+        <h2 class="section__title" data-i18n="gb.aboutTitle">The game</h2>
+        <p class="gb-lead" data-i18n="gb.short">Gearbreak is an isometric pixel-art beat 'em up roguelite. Launch robots into the air, juggle them, smash them into walls and into each other, and build a new fighting style every run.</p>
+        <div class="gb-story">
+          <p data-i18n="gb.p1">Everyone in the city talked on the Circuit. It was noisy. It worked. Then one voice got louder than the rest: the Foundry, which promised to fix what was broken. Soon people stopped coming home, and the Foundry started building machines that never say no.</p>
+          <p class="gb-story__punch" data-i18n="gb.p2">Past the last street, at a small outpost, a few friends still say no. You're their fighter.</p>
+          <p data-i18n="gb.p3">Every run crosses nine stages: fights, survival arenas, supply depots and two bosses, the Spider-Tank and the Scrap-Golem. Combat rewards creativity. Launch robots and keep the juggle going, splat them against walls, throw them into each other, spin them with the Giant Swing or finish with a Piledriver. The more varied your moves, the higher your style multiplier climbs.</p>
+          <p data-i18n="gb.p4">Between fights, pick parts that change how you play: ricochets, shockwaves, magnets and more. Back at the outpost, the crew helps you grow stronger for the next attempt.</p>
+        </div>
+      </div>
+      <aside class="facts" aria-label="Game details">
+        <dl>
+          <dt data-i18n="gb.fStatus">Status</dt><dd data-i18n="games.badge">In development</dd>
+          <dt data-i18n="gb.fGenre">Genres</dt><dd data-i18n="gb.genres">Beat 'em up · Roguelite · Isometric pixel art · Action</dd>
+          <dt data-i18n="gb.fRun">A run</dt><dd data-i18n="gb.fRunV">Nine stages: fights, survival arenas, supply depots and two bosses</dd>
+          <dt data-i18n="gb.fBoss">Bosses</dt><dd data-i18n="gb.fBossV">Spider-Tank · Scrap-Golem</dd>
+          <dt data-i18n="gb.fDev">Developer</dt><dd>Vile Imp</dd>
+        </dl>
+      </aside>
+    </section>
+
+    <section class="section gb-features">
+      <h2 class="section__title section__title--dark" data-i18n="gb.featTitle">Features</h2>
+      <ol class="feat-grid">
+        <li><span data-i18n="gb.ft1">Brawler combat built on launches, juggles, wall splats and chain reactions.</span></li>
+        <li><span data-i18n="gb.ft2">Grabs and signature moves like the Piledriver, Giant Swing and Body Slam.</span></li>
+        <li><span data-i18n="gb.ft3">A style multiplier that rewards mixing moves over repeating them.</span></li>
+        <li><span data-i18n="gb.ft4">Nine-stage runs with survival arenas, shops and two bosses.</span></li>
+        <li><span data-i18n="gb.ft5">Dozens of parts to build a different fighter every run.</span></li>
+        <li><span data-i18n="gb.ft6">An outpost hub with a lively crew and permanent upgrades.</span></li>
+        <li><span data-i18n="gb.ft7">Hand-made isometric pixel art.</span></li>
+      </ol>
+    </section>
+
+    <section class="section contact">
+      <h2 class="contact__big" data-i18n="gb.ctaTitle">Coming soon.</h2>
+      <p class="contact__sub" data-i18n="gb.ctaSub">The Foundry is still building. So are we.</p>
+      <div class="contact__links">
+        <a class="btn btn--dark" href="index.html#contact" data-i18n="gb.ctaBtn">Talk to the studio</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <img src="assets/logo-white.png" alt="Vile Imp" width="1548" height="828" class="footer__logo">
+    <p>© <span id="year">2026</span> Vile Imp. <span data-i18n="footer">All rights reserved. No imps were harmed.</span></p>
+  </footer>
+
+  <script src="i18n.js?v=6"></script>
+</body>
+</html>

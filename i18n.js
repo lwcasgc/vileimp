@@ -7,13 +7,33 @@
     'hero.cta': 'Ver nossos jogos',
     'marquee': 'JOGUINHOS MALVADOS ✦ FEITOS COM RANCOR ✦ E MUITO AMOR ✦&nbsp;',
     'games.title': 'Jogos',
+    'games.more': 'Saiba mais',
+    'gb.genres': 'Beat \'em up · Roguelite · Pixel art isométrica · Ação',
+    'gb.tagline': 'Desmonte a Fundição. Devolva as vozes da cidade.',
+    'gb.short': 'Gearbreak é um beat \'em up roguelite isométrico em pixel art. Lance robôs para o alto, faça malabarismo com eles, esmague-os nas paredes e uns contra os outros, e monte um estilo de luta novo a cada partida.',
+    'gb.back': 'Todos os jogos',
+    'gb.g1': 'Beat \'em up', 'gb.g2': 'Roguelite', 'gb.g3': 'Pixel art isométrica', 'gb.g4': 'Ação',
+    'gb.marquee': 'LANÇAR ✦ MALABARISMO ✦ NA PAREDE ✦ BATE-ESTACA ✦ GIRO GIGANTE ✦ PANCADA NO CHÃO ✦&nbsp;',
+    'gb.aboutTitle': 'O jogo',
+    'gb.p1': 'Todo mundo na cidade conversava pelo Circuito. Era barulhento. Funcionava. Até que uma voz ficou mais alta que as outras: a Fundição, que prometeu consertar o que estava quebrado. Logo as pessoas pararam de voltar para casa, e a Fundição começou a construir máquinas que nunca dizem não.',
+    'gb.p2': 'Depois da última rua, num pequeno posto avançado, alguns amigos ainda dizem não. Você é o lutador deles.',
+    'gb.p3': 'Cada partida atravessa nove fases: lutas, arenas de sobrevivência, depósitos de suprimentos e dois chefes, o Tanque-Aranha e o Golem de Sucata. O combate recompensa a criatividade. Lance robôs e mantenha o malabarismo, esmague-os nas paredes, arremesse uns contra os outros, gire-os com o Giro Gigante ou finalize com um Bate-Estaca. Quanto mais variados os seus golpes, mais alto sobe o seu multiplicador de estilo.',
+    'gb.p4': 'Entre as lutas, escolha peças que mudam o seu jeito de jogar: ricochetes, ondas de choque, ímãs e muito mais. De volta ao posto avançado, a equipe ajuda você a ficar mais forte para a próxima tentativa.',
+    'gb.fStatus': 'Status', 'gb.fGenre': 'Gêneros', 'gb.fRun': 'Uma partida',
+    'gb.fRunV': 'Nove fases: lutas, arenas de sobrevivência, depósitos de suprimentos e dois chefes',
+    'gb.fBoss': 'Chefes', 'gb.fBossV': 'Tanque-Aranha · Golem de Sucata', 'gb.fDev': 'Desenvolvedora',
+    'gb.featTitle': 'Destaques',
+    'gb.ft1': 'Combate de brigão baseado em lançamentos, malabarismos, esmagadas na parede e reações em cadeia.',
+    'gb.ft2': 'Agarrões e golpes marcantes como o Bate-Estaca, o Giro Gigante e a Pancada no Chão.',
+    'gb.ft3': 'Um multiplicador de estilo que recompensa variar os golpes em vez de repeti-los.',
+    'gb.ft4': 'Partidas de nove fases com arenas de sobrevivência, lojas e dois chefes.',
+    'gb.ft5': 'Dezenas de peças para montar um lutador diferente a cada partida.',
+    'gb.ft6': 'Um posto avançado com uma equipe animada e melhorias permanentes.',
+    'gb.ft7': 'Pixel art isométrica feita à mão.',
+    'gb.ctaTitle': 'Em breve.',
+    'gb.ctaSub': 'A Fundição ainda está construindo. A gente também.',
+    'gb.ctaBtn': 'Fale com o estúdio',
     'games.badge': 'Em desenvolvimento',
-    'games.kicker': 'Ação / briga · PC',
-    'games.desc': 'Um lutador. Uma equipe de amigos. Um alvo: <strong>o Fundador</strong>. Abra caminho no soco pela máquina dele, engrenagem por engrenagem, e derrube tudo.',
-    'games.f1': 'Combate corpo a corpo rápido e pesado',
-    'games.f2': 'Recrute seus amigos e lute ao lado deles',
-    'games.f3': 'Toda run termina com alguém levando um soco',
-    'games.soon': 'Em breve',
     'studio.title': 'O estúdio',
     'studio.lead': 'A Vile Imp é um estúdio indie pequenininho do Brasil. Fazemos jogos <mark>rápidos</mark>, <mark>engraçados</mark> e um pouquinho <mark>mal-educados</mark>.',
     'studio.v1': 'Sensação primeiro. Se bater nas coisas não for divertido, nada mais importa.',
@@ -32,7 +52,8 @@
     var dict = lang === 'pt' ? pt : en;
     nodes.forEach(function (n) { var k = n.dataset.i18n; if (dict[k]) n.innerHTML = dict[k]; });
     document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
-    document.title = lang === 'pt' ? 'Vile Imp — Estúdio Independente de Games' : 'Vile Imp — Independent Game Studio';
+    var t = document.documentElement.dataset['title' + (lang === 'pt' ? 'Pt' : 'En')];
+    if (t) document.title = t;
     btn.dataset.lang = lang;
     btn.setAttribute('aria-label', lang === 'pt' ? 'Switch to English' : 'Mudar para português');
     try { localStorage.setItem('vi-lang', lang); } catch (e) {}
