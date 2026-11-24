@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
   <script>(function(){try{var f=sessionStorage.getItem("vt");if(f){sessionStorage.removeItem("vt");document.documentElement.className+=" vt-in vt-"+f}}catch(e){}})();</script>
-  <link rel="stylesheet" href="style.css?v=18">
+  <link rel="stylesheet" href="style.css?v=19">
 </head>
 <body class="gb">
   <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="gear" viewBox="0 0 100 100"><path d="M43 4h14l2 12a35 35 0 0 1 9 4l10-7 10 10-7 10a35 35 0 0 1 4 9l12 2v14l-12 2a35 35 0 0 1-4 9l7 10-10 10-10-7a35 35 0 0 1-9 4l-2 12H43l-2-12a35 35 0 0 1-9-4l-10 7-10-10 7-10a35 35 0 0 1-4-9L3 57V43l12-2a35 35 0 0 1 4-9l-7-10 10-10 10 7a35 35 0 0 1 9-4z M50 33a17 17 0 1 0 0.01 0z" fill-rule="evenodd"/></symbol></svg>
@@ -158,6 +158,7 @@
   </footer>
 
   <div class="music-box">
+    <button class="music-play" id="music-play" type="button" aria-label="Play music"><img id="music-play-icon" src="assets/gearbreak/play.png" alt="" width="16" height="16"></button>
     <button class="music" id="music" type="button" aria-pressed="true">
       <img src="assets/gearbreak/music.png" alt="" width="16" height="16"><span id="music-label">Music: on</span>
     </button>
@@ -193,8 +194,9 @@
   <script>
     (function () {
       var a = document.getElementById('theme'), b = document.getElementById('music'), l = document.getElementById('music-label');
-      var muted = false, playing = false;
-      try { muted = localStorage.getItem('vi-music-muted') === '1'; } catch (e) {}
+      var muted = false, playing = false, userPaused = false;
+      var pb = document.getElementById('music-play'), pi = document.getElementById('music-play-icon');
+      try { muted = localStorage.getItem('vi-music-muted') === '1'; userPaused = localStorage.getItem('vi-music-paused') === '1'; } catch (e) {}
       var vol = document.getElementById('volume'), level = 35;
       try { var sv = parseInt(localStorage.getItem('vi-music-volume'), 10); if (sv >= 0 && sv <= 100) level = sv; } catch (e) {}
       vol.value = level; a.volume = level / 100;
@@ -204,11 +206,14 @@
         if (muted && level > 0) { muted = false; try { localStorage.setItem('vi-music-muted', '0'); } catch (x) {} label(); start(); }
         else if (!muted) { start(); }
       });
-      var words = { en: ['Music: on', 'Music: off', 'Click anywhere for music'], pt: ['Música: ligada', 'Música: desligada', 'Clique para ouvir a música'] };
+      var words = { en: ['Music: on', 'Music: off', 'Click anywhere for music', 'Music: paused', 'Play music', 'Pause music'], pt: ['Música: ligada', 'Música: desligada', 'Clique para ouvir a música', 'Música: pausada', 'Tocar música', 'Pausar música'] };
       function label() {
         var w = words[document.documentElement.lang === 'pt-BR' ? 'pt' : 'en'];
-        l.textContent = muted ? w[1] : (playing ? w[0] : w[2]);
-        b.classList.toggle('is-waiting', !muted && !playing);
+        l.textContent = muted ? w[1] : (playing ? w[0] : (userPaused ? w[3] : w[2]));
+        b.classList.toggle('is-waiting', !muted && !playing && !userPaused);
+        pb.classList.toggle('is-waiting', !muted && !playing && !userPaused);
+        pi.src = playing ? 'assets/gearbreak/pause.png' : 'assets/gearbreak/play.png';
+        pb.setAttribute('aria-label', playing ? w[5] : w[4]);
         b.setAttribute('aria-pressed', muted ? 'false' : 'true');
         b.classList.toggle('is-off', muted);
       }
@@ -223,19 +228,31 @@
         })(t0);
       }
       function start() {
-        if (muted || playing) return;
+        if (muted || playing || userPaused) return;
         a.volume = 0;
         var p = a.play();
         if (p && p.then) p.then(function () { playing = true; fadeIn(); label(); }, function () {});
         else { playing = true; fadeIn(); label(); }
       }
-      function unlock() { start(); }
+      function unlock(e) { if (e && e.target && e.target.closest && e.target.closest('#music-play')) return; start(); }
       ['pointerdown', 'pointerup', 'mousedown', 'click', 'keydown', 'touchstart', 'touchend'].forEach(function (ev) { window.addEventListener(ev, unlock, { passive: true }); });
+      pb.addEventListener('click', function (e) {
+        e.stopPropagation();
+        if (playing) {
+          userPaused = true; fading = false; a.pause(); playing = false;
+        } else {
+          userPaused = false;
+          if (muted) { muted = false; try { localStorage.setItem('vi-music-muted', '0'); } catch (x) {} }
+          start();
+        }
+        try { localStorage.setItem('vi-music-paused', userPaused ? '1' : '0'); } catch (x) {}
+        label();
+      });
       b.addEventListener('click', function (e) {
         e.stopPropagation();
         muted = !muted;
         try { localStorage.setItem('vi-music-muted', muted ? '1' : '0'); } catch (x) {}
-        if (muted) { fading = false; a.pause(); playing = false; } else { start(); }
+        if (muted) { fading = false; a.pause(); playing = false; } else { userPaused = false; try { localStorage.setItem('vi-music-paused', '0'); } catch (x) {} start(); }
         label();
       });
       document.addEventListener('visibilitychange', function () {
