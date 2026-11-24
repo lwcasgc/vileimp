@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=13">
+  <link rel="stylesheet" href="style.css?v=14">
 </head>
 <body class="gb">
   <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="gear" viewBox="0 0 100 100"><path d="M43 4h14l2 12a35 35 0 0 1 9 4l10-7 10 10-7 10a35 35 0 0 1 4 9l12 2v14l-12 2a35 35 0 0 1-4 9l7 10-10 10-10-7a35 35 0 0 1-9 4l-2 12H43l-2-12a35 35 0 0 1-9-4l-10 7-10-10 7-10a35 35 0 0 1-4-9L3 57V43l12-2a35 35 0 0 1 4-9l-7-10 10-10 10 7a35 35 0 0 1 9-4z M50 33a17 17 0 1 0 0.01 0z" fill-rule="evenodd"/></symbol></svg>
@@ -156,6 +156,10 @@
     <p>© <span id="year">2026</span> Vile Imp. <span data-i18n="footer">All rights reserved. No imps were harmed.</span></p>
   </footer>
 
+  <button class="music" id="music" type="button" aria-pressed="true">
+    <img src="assets/gearbreak/music.png" alt="" width="16" height="16"><span id="music-label">Music: on</span>
+  </button>
+  <audio id="theme" src="assets/audio/gearbreak-theme.ogg" loop preload="none"></audio>
   <script src="i18n.js?v=10"></script>
   <script>
     (function () {
@@ -179,6 +183,41 @@
         if (e.key === 'ArrowLeft') show(cur - 1);
         if (e.key === 'ArrowRight') show(cur + 1);
       });
+    })();
+  </script>
+  <script>
+    (function () {
+      var a = document.getElementById('theme'), b = document.getElementById('music'), l = document.getElementById('music-label');
+      var muted = false, playing = false;
+      try { muted = localStorage.getItem('vi-music-muted') === '1'; } catch (e) {}
+      a.volume = 0.35;
+      var words = { en: ['Music: on', 'Music: off'], pt: ['Música: ligada', 'Música: desligada'] };
+      function label() {
+        var w = words[document.documentElement.lang === 'pt-BR' ? 'pt' : 'en'];
+        l.textContent = muted ? w[1] : w[0];
+        b.setAttribute('aria-pressed', muted ? 'false' : 'true');
+        b.classList.toggle('is-off', muted);
+      }
+      function start() {
+        if (muted || playing) return;
+        var p = a.play();
+        if (p && p.then) p.then(function () { playing = true; }, function () {});
+        else playing = true;
+      }
+      function unlock() { start(); }
+      ['pointerdown', 'keydown', 'touchend'].forEach(function (ev) { window.addEventListener(ev, unlock, { once: false, passive: true }); });
+      b.addEventListener('click', function (e) {
+        e.stopPropagation();
+        muted = !muted;
+        try { localStorage.setItem('vi-music-muted', muted ? '1' : '0'); } catch (x) {}
+        if (muted) { a.pause(); playing = false; } else { start(); }
+        label();
+      });
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) { a.pause(); playing = false; } else if (!muted) { start(); }
+      });
+      new MutationObserver(label).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+      label();
     })();
   </script>
 </body>

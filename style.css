@@ -328,3 +328,17 @@ body.gb .section__title { font-size: clamp(2rem, 8vw, 6rem); overflow-wrap: anyw
   .tags li { font-size: .78rem; padding: 6px 12px; }
   .feature--gb { box-shadow: 5px 5px 0 var(--gb-orange); }
 }
+
+/* The game face shapes its lower-case letters as capitals and has no capital U with acute (the game draws the lower-case
+   ú for it), so the pages that use it never upper-case their text: "Ú" would fall back to another font and look broken. */
+body.gb, body.gb *, .feature--gb, .feature--gb * { text-transform: none !important; }
+
+/* Music button: square paper chip with the game's note icon, bottom right */
+.music { position: fixed; right: 16px; bottom: 16px; z-index: 20; display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'Dead Revolver', 'Rubik', system-ui, sans-serif; font-size: .9rem; letter-spacing: .04em; cursor: pointer;
+  background: #fff; color: #181121; border: 3px solid #181121; border-radius: 4px; box-shadow: 4px 4px 0 #ea7436; padding: 8px 12px; }
+.music img { width: 20px; height: 20px; image-rendering: pixelated; }
+.music:hover, .music:focus-visible { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #ea7436; outline: none; }
+.music.is-off { background: #d6d6de; }
+.music.is-off img { opacity: .45; }
+@media (max-width: 860px) { .music { right: 10px; bottom: 10px; padding: 6px 10px; font-size: .8rem; } }
