@@ -308,3 +308,23 @@ body.gb .gb-features .section__title::after { color: var(--gb-orange); }
 .feature--gb .feature__name { z-index: 2; margin: 0 0 34px 30px; transform: rotate(-3deg); transform-origin: left bottom; font-size: clamp(2.4rem, 5.4vw, 4.4rem); }
 .feature--gb .badge { z-index: 2; }
 @media (max-width: 860px) { .feature--gb .feature__art { min-height: 340px; } .feature--gb .gear { width: 100px; } }
+
+/* Mobile: nothing may be wider than the screen. The Dead Revolver face is wide (about .75em a letter), so the big titles shrink with the screen. */
+body.gb .gb-hero { grid-template-columns: minmax(0, 1fr); }
+.gb-hero__inner, .gb-about__main, .facts, .shot-grid li, .feat-grid li { min-width: 0; }
+body.gb .gb-hero__title { font-size: clamp(2.2rem, 11.5vw, 9rem); overflow-wrap: anywhere; }
+body.gb .contact__big { font-size: clamp(2rem, 9.5vw, 10rem); }
+body.gb .section__title { font-size: clamp(2rem, 8vw, 6rem); overflow-wrap: anywhere; }
+@media (max-width: 860px) {
+  body.gb .gb-hero { padding: 100px 20px 56px; min-height: 0; }
+  body.gb .gb-hero__tagline { font-size: 1.05rem; max-width: none; }
+  body.gb .gb-hero__title { text-shadow: 4px 4px 0 var(--gb-orange), 7px 7px 0 #000; }
+  body.gb .shot--hero { transform: none; margin-top: 32px; box-shadow: 8px 8px 0 var(--gb-orange); max-width: calc(100% - 8px); }
+  body.gb .shot--hero:hover, body.gb .shot--hero:focus-visible { transform: none; }
+  body.gb .shot-grid .shot { box-shadow: 6px 6px 0 var(--gb-orange); }
+  body.gb .back { position: static; display: inline-block; margin-bottom: 18px; }
+  body.gb .facts { box-shadow: 5px 5px 0 var(--gb-orange); }
+  body.gb .section { padding-left: 20px; padding-right: 20px; }
+  .tags li { font-size: .78rem; padding: 6px 12px; }
+  .feature--gb { box-shadow: 5px 5px 0 var(--gb-orange); }
+}
