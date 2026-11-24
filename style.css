@@ -222,7 +222,7 @@ body.gb .gb-hero { background: var(--gb-ink); border-bottom: 6px solid var(--gb-
   background-image: repeating-linear-gradient(-45deg, rgba(67,240,255,.04) 0 14px, transparent 14px 28px); }
 body.gb .gear { fill: var(--gb-ink2); opacity: 1; }
 body.gb .gb-hero__gear { opacity: .9; }
-body.gb .gb-hero__title { color: var(--gb-cyan); -webkit-text-stroke: 0; text-shadow: 6px 6px 0 var(--gb-orange), 10px 10px 0 #000; font-weight: 400; letter-spacing: .02em; }
+body.gb .gb-hero__title { color: var(--gb-paper); -webkit-text-stroke: 0; text-shadow: 6px 6px 0 var(--gb-orange), 10px 10px 0 #000; font-weight: 400; letter-spacing: .02em; }
 body.gb .gb-hero__tagline { color: var(--gb-paper); font-weight: 400; }
 body.gb .back { color: var(--gb-cyan); }
 body.gb .back:hover, body.gb .back:focus-visible { color: var(--gb-orange); }
@@ -269,3 +269,9 @@ body.gb .lightbox { background: var(--gb-ink); border-color: var(--gb-paper); }
 body.gb .lightbox__cap { color: var(--gb-paper); }
 body.gb .lightbox__close, body.gb .lightbox__nav { background: var(--gb-orange); color: var(--gb-ink); border-color: var(--gb-ink); box-shadow: 3px 3px 0 var(--gb-ink); }
 body.gb .lightbox__close:hover, body.gb .lightbox__nav:hover { background: var(--gb-cyan); color: var(--gb-ink); }
+
+/* Lightbox: fit the picture AND its caption on screen; square buttons */
+body.gb .lightbox { width: fit-content; max-width: 92vw; max-height: 94vh; border-radius: 0; }
+body.gb .lightbox__img { width: auto; max-width: 100%; max-height: 72vh; margin: 0 auto; border-radius: 0; object-fit: contain; }
+body.gb .lightbox__cap { max-width: min(92vw, 1000px); font-size: 1rem; }
+body.gb .lightbox__close, body.gb .lightbox__nav { border-radius: 0; }
