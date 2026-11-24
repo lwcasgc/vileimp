@@ -334,14 +334,21 @@ body.gb .section__title { font-size: clamp(2rem, 8vw, 6rem); overflow-wrap: anyw
 body.gb, body.gb *, .feature--gb, .feature--gb * { text-transform: none !important; }
 
 /* Music button: square paper chip with the game's note icon, bottom right */
-.music { position: fixed; right: 16px; bottom: 16px; z-index: 20; display: inline-flex; align-items: center; gap: 10px;
+.music-box { position: fixed; right: 16px; bottom: 16px; z-index: 20; display: flex; align-items: center; gap: 10px;
+  background: #fff; border: 3px solid #181121; border-radius: 4px; box-shadow: 4px 4px 0 #ea7436; padding: 6px 12px 6px 6px; }
+.music { display: inline-flex; align-items: center; gap: 10px;
   font-family: 'Dead Revolver', 'Rubik', system-ui, sans-serif; font-size: .9rem; letter-spacing: .04em; cursor: pointer;
-  background: #fff; color: #181121; border: 3px solid #181121; border-radius: 4px; box-shadow: 4px 4px 0 #ea7436; padding: 8px 12px; }
+  background: transparent; color: #181121; border: 0; box-shadow: none; padding: 4px 6px; }
 .music img { width: 20px; height: 20px; image-rendering: pixelated; }
-.music:hover, .music:focus-visible { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #ea7436; outline: none; }
-.music.is-off { background: #d6d6de; }
+.music:hover, .music:focus-visible { color: #bb5d2b; outline: none; }
+.music.is-off { color: #8a8a99; }
 .music.is-off img { opacity: .45; }
-@media (max-width: 860px) { .music { right: 10px; bottom: 10px; padding: 6px 10px; font-size: .8rem; } }
+/* square pixel slider: ink track, orange block thumb */
+.volume { -webkit-appearance: none; appearance: none; width: 96px; height: 10px; background: #d6d6de; border: 2px solid #181121; border-radius: 0; cursor: pointer; }
+.volume::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 20px; background: #ea7436; border: 2px solid #181121; border-radius: 0; }
+.volume::-moz-range-thumb { width: 8px; height: 16px; background: #ea7436; border: 2px solid #181121; border-radius: 0; }
+.volume:focus-visible { outline: 3px solid #43f0ff; outline-offset: 3px; }
+@media (max-width: 860px) { .music-box { right: 10px; bottom: 10px; gap: 6px; padding: 4px 8px 4px 4px; } .music { font-size: .8rem; } .volume { width: 72px; } }
 
 .footer__credit { font-size: .8rem; }
 .footer__credit a { text-decoration: underline; text-underline-offset: 3px; }
