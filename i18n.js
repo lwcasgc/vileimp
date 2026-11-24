@@ -43,6 +43,7 @@
     'gb.ctaTitle': 'Em breve.',
     'gb.ctaSub': 'A Fundição ainda está construindo. A gente também.',
     'gb.ctaBtn': 'Fale com o estúdio',
+    'gb.musicCredit': 'Música: “Patreon Challenge 12” de',
     'games.badge': 'Em desenvolvimento',
     'studio.title': 'O estúdio',
     'studio.lead': 'A Vile Imp é um estúdio indie pequenininho do Brasil. Fazemos jogos <mark>rápidos</mark>, <mark>engraçados</mark> e um pouquinho <mark>mal-educados</mark>.',
