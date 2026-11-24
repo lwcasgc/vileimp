@@ -275,3 +275,26 @@ body.gb .lightbox { width: fit-content; max-width: 92vw; max-height: 94vh; borde
 body.gb .lightbox__img { width: auto; max-width: 100%; max-height: 72vh; margin: 0 auto; border-radius: 0; object-fit: contain; }
 body.gb .lightbox__cap { max-width: min(92vw, 1000px); font-size: 1rem; }
 body.gb .lightbox__close, body.gb .lightbox__nav { border-radius: 0; }
+
+/* Gear icons from the game (pixel art) behind the hero; features title in white */
+body.gb .gb-hero__gear { image-rendering: pixelated; height: auto; opacity: 1; }
+body.gb .gb-features .section__title { color: var(--gb-paper); line-height: 1; letter-spacing: .01em; -webkit-text-stroke: 0; text-shadow: none; }
+body.gb .gb-features .section__title::after { color: var(--gb-orange); }
+
+/* Home page: the Gearbreak card wears the game's look (Dead Revolver face, ink + orange + cyan, pixel gears) */
+.feature--gb { --gb-ink: #181121; --gb-ink2: #2a2040; --gb-orange: #ea7436; --gb-cyan: #43f0ff;
+  font-family: 'Dead Revolver', 'Rubik', system-ui, sans-serif; letter-spacing: .02em;
+  background: var(--gb-ink); border-color: var(--gb-orange); border-radius: 6px; box-shadow: 8px 8px 0 var(--gb-orange); }
+.feature--gb:hover, .feature--gb:focus-visible { border-color: var(--gb-orange); box-shadow: 11px 11px 0 var(--gb-orange); }
+.feature--gb .feature__art { background-color: var(--gb-ink); border-right: 3px solid var(--gb-orange);
+  background-image: repeating-linear-gradient(-45deg, rgba(67,240,255,.04) 0 14px, transparent 14px 28px); }
+.feature--gb .gear { fill: none; opacity: 1; image-rendering: pixelated; height: auto; }
+.feature--gb .feature__crack { display: none; }
+.feature--gb .feature__name { font-weight: 400; color: #fff; -webkit-text-stroke: 0; text-shadow: 5px 5px 0 var(--gb-orange), 8px 8px 0 #000; letter-spacing: .02em; }
+.feature--gb .badge { background: #fff; color: var(--gb-ink); font-weight: 400; border-radius: 4px; }
+.feature--gb .badge::before { background: var(--gb-orange); }
+.feature--gb .feature__kicker { color: var(--gb-cyan); font-weight: 400; }
+.feature--gb h3, .feature--gb .feature__tagline { font-weight: 400; color: #fff; }
+.feature--gb .feature__body p { color: #e6e3ee; }
+.feature--gb .btn { background: var(--gb-orange); color: var(--gb-ink); border-color: var(--gb-ink); border-radius: 4px; box-shadow: 5px 5px 0 #fff; font-weight: 400; }
+@media (max-width: 860px) { .feature--gb .feature__art { border-right: 0; border-bottom: 3px solid var(--gb-orange); } }
