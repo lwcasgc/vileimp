@@ -65,6 +65,7 @@
     'gb.ctaTitle': 'Em breve.',
     'gb.ctaSub': 'A Fundição ainda está construindo. A gente também.',
     'gb.ctaBtn': 'Fale com o estúdio',
+    'gb.artCredit': 'Arte dos personagens e cenários: Robot Series de',
     'gb.musicCredit': 'Música: “Patreon Challenge 12” de',
     'games.badge': 'Em desenvolvimento',
     'studio.title': 'O estúdio',

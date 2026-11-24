@@ -264,7 +264,7 @@ body.gb .contact { background: var(--gb-orange); color: var(--gb-ink); }
 body.gb .contact__big { color: var(--gb-paper); -webkit-text-stroke: 0; text-shadow: 6px 6px 0 var(--gb-ink); font-weight: 400; }
 body.gb .contact__sub { font-weight: 400; }
 
-body.gb .footer { background: var(--gb-ink); color: #8a8a99; }
+body.gb .footer { background: var(--gb-ink); color: #8a8a99; padding-bottom: 110px; }   /* clear of the floating music box */
 body.gb .lightbox { background: var(--gb-ink); border-color: var(--gb-paper); }
 body.gb .lightbox__cap { color: var(--gb-paper); }
 body.gb .lightbox__close, body.gb .lightbox__nav { background: var(--gb-orange); color: var(--gb-ink); border-color: var(--gb-ink); box-shadow: 3px 3px 0 var(--gb-ink); }
