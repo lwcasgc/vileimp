@@ -25,12 +25,23 @@ a { color: inherit; }
 .nav__links a { text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: .85rem; letter-spacing: .08em; position: relative; }
 .nav__links a::after { content: ''; position: absolute; left: 0; right: 100%; bottom: -4px; height: 3px; background: var(--red); transition: right .2s; }
 .nav__links a:hover::after, .nav__links a:focus-visible::after { right: 0; }
-.lang { font: inherit; font-weight: 900; font-size: .8rem; letter-spacing: .08em; background: none; color: var(--white);
-  border: 2px solid var(--white); border-radius: 999px; padding: 6px 12px; cursor: pointer; transition: border-color .2s; }
-.lang:hover, .lang:focus-visible { border-color: var(--red); outline: none; }
-.lang span { color: var(--grey); transition: color .2s; }
-.lang__sep { margin: 0 4px; }
-.lang[data-lang="en"] [data-l="en"], .lang[data-lang="pt"] [data-l="pt"] { color: var(--red); }
+.lang { position: relative; }
+.lang__btn { font: inherit; font-weight: 900; font-size: .8rem; letter-spacing: .08em; background: none; color: var(--white);
+  border: 2px solid var(--white); border-radius: 999px; padding: 5px 12px 5px 8px; cursor: pointer; transition: border-color .2s;
+  display: flex; align-items: center; gap: 8px; }
+.lang__btn:hover, .lang__btn:focus-visible, .lang.is-open .lang__btn { border-color: var(--red); outline: none; }
+.lang__flag, .lang__menu img { width: 24px; height: 16px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(255,255,255,.35); flex-shrink: 0; }
+.lang__caret { width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 6px solid currentColor; transition: transform .2s; }
+.lang.is-open .lang__caret { transform: rotate(180deg); }
+/* the list drops down under the pill */
+.lang__menu { list-style: none; position: absolute; top: calc(100% + 8px); right: 0; min-width: 190px; padding: 6px; margin: 0;
+  background: var(--black); border: 2px solid var(--white); border-radius: 12px; z-index: 20;
+  opacity: 0; visibility: hidden; transform: translateY(-6px); transform-origin: top right; transition: opacity .15s, transform .15s, visibility 0s .15s; }
+.lang.is-open .lang__menu { opacity: 1; visibility: visible; transform: none; transition: opacity .15s, transform .15s; }
+.lang__menu button { width: 100%; display: flex; align-items: center; gap: 12px; padding: 9px 10px; border: 0; border-radius: 8px;
+  background: none; color: var(--white); font: inherit; font-weight: 700; font-size: .95rem; letter-spacing: .02em; text-align: left; cursor: pointer; }
+.lang__menu button:hover, .lang__menu button:focus-visible { background: rgba(255,255,255,.1); outline: none; }
+.lang__menu button[aria-selected="true"] { color: var(--red); }
 
 /* Hero */
 .hero { min-height: 100vh; display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: clamp(24px, 5vw, 80px);
@@ -207,12 +218,14 @@ body.gb {
 }
 body.gb h1, body.gb h2, body.gb h3, body.gb strong, body.gb .btn, body.gb .badge, body.gb .tags li, body.gb dt, body.gb .back { font-weight: 400; }
 body.gb ::selection { background: var(--gb-orange); color: var(--gb-paper); }
-body.gb .nav { background: var(--gb-ink); border-bottom: 3px solid var(--gb-orange); }
+body.gb .nav { background: rgba(10,10,10,.85); border-bottom: 3px solid var(--gb-orange); }   /* the studio site's nav colour */
 body.gb .nav__links a { color: var(--gb-paper); }
 body.gb .nav__links a::after { background: var(--gb-cyan); }
-body.gb .lang { border-color: var(--gb-paper); color: var(--gb-paper); }
-body.gb .lang:hover, body.gb .lang:focus-visible { border-color: var(--gb-cyan); }
-body.gb .lang[data-lang="en"] [data-l="en"], body.gb .lang[data-lang="pt"] [data-l="pt"] { color: var(--gb-cyan); }
+body.gb .lang__btn { border-color: var(--gb-paper); color: var(--gb-paper); }
+body.gb .lang__btn:hover, body.gb .lang__btn:focus-visible, body.gb .lang.is-open .lang__btn { border-color: var(--gb-cyan); }
+body.gb .lang__menu { background: #0a0a0a; border-color: var(--gb-paper); border-radius: 6px; }
+body.gb .lang__menu button { color: var(--gb-paper); font-weight: 400; border-radius: 4px; }
+body.gb .lang__menu button[aria-selected="true"] { color: var(--gb-cyan); }
 body.gb .btn { background: var(--gb-orange); color: var(--gb-ink); border-color: var(--gb-ink); box-shadow: 5px 5px 0 var(--gb-ink); }
 body.gb .btn--dark { background: var(--gb-ink); color: var(--gb-paper); border-color: var(--gb-ink); box-shadow: 5px 5px 0 var(--gb-paper); }
 body.gb .btn--dark:hover, body.gb .btn--dark:focus-visible { box-shadow: 7px 7px 0 var(--gb-paper); }
@@ -426,3 +439,15 @@ html.vt-in.vt-game::after { content: ''; position: fixed; left: 50%; top: 50%; w
   .crew__art { min-height: 0; }
   .pets__grid { grid-template-columns: 1fr; }
 }
+
+/* The game's CJK pixel face (Fusion Pixel Font 8 px, TakWolf, SIL OFL 1.1: assets/fonts/licenses/fusion-pixel/).
+   Only the Gearbreak page and its card use it, after Dead Revolver, and a browser fetches it only when a
+   Japanese or Chinese page needs it. */
+@font-face { font-family: 'Fusion Pixel JA'; src: url('assets/fonts/fusion-pixel-8px-proportional-ja.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Fusion Pixel SC'; src: url('assets/fonts/fusion-pixel-8px-proportional-zh_hans.ttf') format('truetype'); font-display: swap; }
+/* Japanese and Chinese: the Latin faces (Rubik, Dead Revolver) have no CJK glyphs, so name system CJK faces next,
+   in the right regional form for each language */
+html:lang(ja) body { font-family: 'Rubik', 'Yu Gothic UI', 'Yu Gothic', Meiryo, 'Hiragino Sans', 'Noto Sans JP', sans-serif; }
+html:lang(ja) body.gb, html:lang(ja) .feature--gb { font-family: 'Dead Revolver', 'Fusion Pixel JA', 'Yu Gothic UI', 'Yu Gothic', Meiryo, 'Hiragino Sans', 'Noto Sans JP', sans-serif; }
+html:lang(zh-CN) body { font-family: 'Rubik', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', sans-serif; }
+html:lang(zh-CN) body.gb, html:lang(zh-CN) .feature--gb { font-family: 'Dead Revolver', 'Fusion Pixel SC', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', sans-serif; }

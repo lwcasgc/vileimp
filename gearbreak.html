@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-title-en="Gearbreak — Vile Imp" data-title-pt="Gearbreak — Vile Imp">
+<html lang="en" data-title-en="Gearbreak — Vile Imp" data-title-pt="Gearbreak — Vile Imp" data-title-es="Gearbreak — Vile Imp" data-title-ja="Gearbreak — Vile Imp" data-title-zh="Gearbreak — Vile Imp">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,22 +16,31 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
   <script>(function(){try{var f=sessionStorage.getItem("vt");if(f){sessionStorage.removeItem("vt");document.documentElement.className+=" vt-in vt-"+f}}catch(e){}})();</script>
-  <link rel="stylesheet" href="style.css?v=28">
+  <link rel="stylesheet" href="style.css?v=31">
 </head>
 <body class="gb">
   <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="gear" viewBox="0 0 100 100"><path d="M43 4h14l2 12a35 35 0 0 1 9 4l10-7 10 10-7 10a35 35 0 0 1 4 9l12 2v14l-12 2a35 35 0 0 1-4 9l7 10-10 10-10-7a35 35 0 0 1-9 4l-2 12H43l-2-12a35 35 0 0 1-9-4l-10 7-10-10 7-10a35 35 0 0 1-4-9L3 57V43l12-2a35 35 0 0 1 4-9l-7-10 10-10 10 7a35 35 0 0 1 9-4z M50 33a17 17 0 1 0 0.01 0z" fill-rule="evenodd"/></symbol></svg>
 
   <header class="nav">
     <a class="nav__logo" href="index.html" aria-label="Vile Imp">
-      <img src="assets/logo-white.png" alt="Vile Imp" width="1548" height="828">
+      <img src="assets/logo-sticker.png" alt="Vile Imp" width="717" height="383">
     </a>
     <nav class="nav__links" aria-label="Main">
       <a href="index.html#games" data-i18n="nav.games">Games</a>
       <a href="index.html#studio" data-i18n="nav.studio">Studio</a>
       <a href="index.html#contact" data-i18n="nav.contact">Contact</a>
-      <button class="lang" id="lang" type="button" aria-label="Mudar para português">
-        <span data-l="en">EN</span><span class="lang__sep">/</span><span data-l="pt">PT</span>
-      </button>
+      <div class="lang" id="lang">
+        <button class="lang__btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language: English">
+          <img class="lang__flag" src="assets/flags/us.svg" alt="" width="30" height="20"><span class="lang__code">EN</span><span class="lang__caret" aria-hidden="true"></span>
+        </button>
+        <ul class="lang__menu" role="listbox" aria-label="Language">
+          <li><button type="button" role="option" data-lang="en" aria-selected="true"><img src="assets/flags/us.svg" alt="" width="30" height="20"><span>English</span></button></li>
+          <li><button type="button" role="option" data-lang="pt" aria-selected="false"><img src="assets/flags/br.svg" alt="" width="30" height="20"><span>Português</span></button></li>
+          <li><button type="button" role="option" data-lang="es" aria-selected="false"><img src="assets/flags/es.svg" alt="" width="30" height="20"><span>Español</span></button></li>
+          <li><button type="button" role="option" data-lang="ja" aria-selected="false" lang="ja"><img src="assets/flags/jp.svg" alt="" width="30" height="20"><span>日本語</span></button></li>
+          <li><button type="button" role="option" data-lang="zh" aria-selected="false" lang="zh-CN"><img src="assets/flags/cn.svg" alt="" width="30" height="20"><span>简体中文</span></button></li>
+        </ul>
+      </div>
     </nav>
   </header>
 
@@ -247,7 +256,7 @@
   </main>
 
   <footer class="footer">
-    <img src="assets/logo-white.png" alt="Vile Imp" width="1548" height="828" class="footer__logo">
+    <img src="assets/logo-sticker.png" alt="Vile Imp" width="717" height="383" class="footer__logo">
     <p>© <span id="year">2026</span> Vile Imp. <span data-i18n="footer">All rights reserved. No imps were harmed.</span><br><span class="footer__credit"><span data-i18n="gb.musicCredit">Music: “Patreon Challenge 12” by</span> <a href="https://abstractionmusic.com/" target="_blank" rel="noopener">Abstraction Music</a> (CC0)</span><br><span class="footer__credit"><span data-i18n="gb.artCredit">Characters and environment art: Robot Series by</span> MEKAI GAMES</span></p>
   </footer>
 
@@ -260,7 +269,7 @@
   </div>
   <audio id="theme" loop preload="auto"><source src="assets/audio/gearbreak-theme.ogg" type="audio/ogg; codecs=opus"></audio>
   <script src="transition.js?v=1"></script>
-  <script src="i18n.js?v=17"></script>
+  <script src="i18n.js?v=20"></script>
   <script>
     (function () {
       var shots = Array.prototype.slice.call(document.querySelectorAll('[data-shot]'));
@@ -300,9 +309,9 @@
         if (muted && level > 0) { muted = false; try { localStorage.setItem('vi-music-muted', '0'); } catch (x) {} label(); start(); }
         else if (!muted) { start(); }
       });
-      var words = { en: ['Music: on', 'Music: off', 'Click anywhere for music', 'Music: paused', 'Play music', 'Pause music'], pt: ['Música: ligada', 'Música: desligada', 'Clique para ouvir a música', 'Música: pausada', 'Tocar música', 'Pausar música'] };
+      var words = { en: ['Music: on', 'Music: off', 'Click anywhere for music', 'Music: paused', 'Play music', 'Pause music'], pt: ['Música: ligada', 'Música: desligada', 'Clique para ouvir a música', 'Música: pausada', 'Tocar música', 'Pausar música'], es: ['Música: activada', 'Música: desactivada', 'Haz clic para escuchar la música', 'Música: en pausa', 'Reproducir música', 'Pausar música'], ja: ['音楽：オン', '音楽：オフ', 'クリックで音楽を再生', '音楽：一時停止', '音楽を再生', '音楽を一時停止'], zh: ['音乐：开', '音乐：关', '点击任意处播放音乐', '音乐：已暂停', '播放音乐', '暂停音乐'] };
       function label() {
-        var w = words[document.documentElement.lang === 'pt-BR' ? 'pt' : 'en'];
+        var w = words[document.documentElement.lang.slice(0, 2)] || words.en;
         l.textContent = playing && !muted ? w[0] : w[1];
         pb.classList.toggle('is-waiting', !muted && !playing && !userPaused);
         pi.src = playing ? 'assets/gearbreak/pause.png' : 'assets/gearbreak/play.png';

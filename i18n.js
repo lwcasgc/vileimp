@@ -77,28 +77,381 @@
     'contact.sub': 'Imprensa, negócios, ou só quer gritar com o diabinho?',
     'footer': 'Todos os direitos reservados. Nenhum diabinho foi ferido.'
   };
+  var es = {
+    "nav.games": "Juegos",
+    "nav.studio": "Estudio",
+    "nav.contact": "Contacto",
+    "hero.tag": "Un estudio independiente de videojuegos que hace <em>jueguitos ruidosos y malvados</em>.",
+    "hero.cta": "Ver nuestros juegos",
+    "marquee": "JUEGUITOS MALVADOS ✦ HECHOS CON RENCOR ✦ Y MUCHO AMOR ✦&nbsp;",
+    "games.title": "Juegos",
+    "games.badge": "En desarrollo",
+    "games.more": "Más información",
+    "gb.genres": "Beat 'em up · Roguelite · Pixel art isométrico · Acción",
+    "gb.tagline": "Desarma la Fundición. Devuélvele las voces a la ciudad.",
+    "gb.short": "Gearbreak es un beat 'em up roguelite isométrico en pixel art. Manda a volar robots, hazles malabares, estámpalos contra las paredes y entre ellos, y arma un estilo de pelea nuevo en cada partida.",
+    "studio.title": "El estudio",
+    "studio.lead": "Vile Imp es un estudio indie pequeñito de Brasil. Hacemos juegos <mark>rápidos</mark>, <mark>graciosos</mark> y un poquito <mark>groseros</mark>.",
+    "studio.v1": "Primero, la sensación. Si pegarle a las cosas no es divertido, nada más importa.",
+    "studio.v2": "Equipo pequeño, actitud enorme. Perseguimos ideas raras a propósito.",
+    "studio.v3": "Hecho para quien juega. Desarrollamos en público y escuchamos.",
+    "contact.title": "Saluda.",
+    "contact.sub": "¿Prensa, negocios, o solo quieres gritarle al diablillo?",
+    "footer": "Todos los derechos reservados. Ningún diablillo salió lastimado.",
+    "gb.back": "Todos los juegos",
+    "gb.g1": "Beat 'em up",
+    "gb.g2": "Roguelite",
+    "gb.g3": "Pixel art isométrico",
+    "gb.g4": "Acción",
+    "gb.marquee": "MANDAR A VOLAR ✦ MALABARES ✦ ESTAMPADO ✦ MARTINETE ✦ GIRO GIGANTE ✦ AZOTÓN ✦&nbsp;",
+    "gb.aboutTitle": "El juego",
+    "gb.p1": "Todos en la ciudad hablaban por el Circuito, hasta que la Fundición se volvió la más ruidosa y empezó a construir máquinas que nunca dicen que no.",
+    "gb.p2": "Pasando la última calle, en una pequeña avanzada, unos cuantos amigos todavía dicen que no. Tú eres Trancazo, su peleador.",
+    "gb.p3": "Entre peleas, elige piezas que cambian tu forma de jugar y vuelve a la avanzada más fuerte para la siguiente partida.",
+    "gb.fStatus": "Estado",
+    "gb.fGenre": "Géneros",
+    "gb.fRun": "Una partida",
+    "gb.fRunV": "Partidas rápidas y rejugables por la Fundición",
+    "gb.fBoss": "Jefes",
+    "gb.fBossV": "Widowmaker · Slagheap",
+    "gb.fDev": "Desarrolladora",
+    "gb.castTitle": "El equipo",
+    "gb.castLead": "Unos cuantos amigos más allá de la última calle todavía le dicen que no a la Fundición. Estos son los que mantienen viva la pelea.",
+    "gb.rumbleName": "Trancazo",
+    "gb.rumbleTitle": "Peleador",
+    "gb.rumblePerk": "Ese eres tú",
+    "gb.rumbleQuote": "Servos calientes. Puños listos.",
+    "gb.rumbleTxt": "El peleador de la avanzada, el que vuelve a la Fundición en cada partida. Manda a volar robots, hazles malabares, estámpalos contra las paredes y elige piezas que convierten cada partida en un estilo de pelea nuevo.",
+    "gb.merchantName": "Ficha",
+    "gb.merchantTitle": "Bot mercader",
+    "gb.merchantPerk": "Mejoras de chasis",
+    "gb.merchantQuote": "Ya calculé tus probabilidades de victoria. Me niego a publicar las cifras hasta que ganes.",
+    "gb.merchantTxt": "Maneja la tienda más rentable de la avanzada y te lo va a recordar. Gasta tus núcleos en mejoras permanentes de chasis y prepárate para un discurso sobre responsabilidad financiera en cada venta.",
+    "gb.elderName": "Óxido",
+    "gb.elderTitle": "Bot anciano",
+    "gb.elderPerk": "Movimientos",
+    "gb.elderQuote": "¡Recuerdo mi primera victoria como si fuera ayer! Lo de ayer no lo recuerdo, eso sí.",
+    "gb.elderTxt": "El bot más viejo de la avanzada, veterano de guerras que nadie sabe fechar. Aprende nuevos remates, llaves y movimientos de impulso, y busca a Óxido junto a la puerta de la arena antes de la gran pelea.",
+    "gb.barkeepName": "Grifo",
+    "gb.barkeepTitle": "Bot mesero",
+    "gb.barkeepPerk": "Chips iniciales",
+    "gb.barkeepQuote": "¿Dados cargados? Yo les digo dados cuidadosos.",
+    "gb.barkeepTxt": "Sirve bebidas, reparte cartas y organiza las apuestas más amistosas de la ciudad. Elige los chips iniciales que llevas a cada partida y prueba tu suerte en la mesa entre peleas.",
+    "gb.engineerName": "Tuerca",
+    "gb.engineerTitle": "Bot ingeniero",
+    "gb.engineerPerk": "Especiales",
+    "gb.engineerQuote": "¡Inventé una batería que dura para siempre! Lástima que solo se alimenta a sí misma.",
+    "gb.engineerTxt": "Les dice \"resultados esperados\" a las explosiones. Desbloquea especiales en el arsenal, como Descarga, Escudo de Energía y PEM, para que tu peleador tenga un truco para cada situación.",
+    "gb.petsTitle": "Las mascotas de la avanzada",
+    "gb.petsTxt": "Holgazanean por la avanzada, voltean a verte cuando pasas y siguen a Trancazo en las pantallas de carga.",
+    "gb.catName": "Fusible",
+    "gb.cat": "El gato",
+    "gb.catLine": "Te mira y parpadea despacio. Eso quiere decir que pasaste la prueba.",
+    "gb.dogName": "Pistón",
+    "gb.dog": "El perro",
+    "gb.dogLine": "Deja caer un tornillo a tus pies. Un regalo.",
+    "gb.frogName": "Remache",
+    "gb.frog": "La rana",
+    "gb.frogLine": "Se queda completamente quieta. Así demuestra su cariño.",
+    "gb.shotsTitle": "Capturas",
+    "gb.c1t": "Combate",
+    "gb.c1": "Manda a volar robots y encadena movimientos distintos para subir tu multiplicador de estilo.",
+    "gb.c2t": "Piezas",
+    "gb.c2": "Elige una pieza después de cada pelea y arma una combinación nueva en cada partida.",
+    "gb.c3t": "Depósitos de suministros",
+    "gb.c3": "Gasta tus engranajes en piezas nuevas, reparaciones y reabastecimientos.",
+    "gb.c4t": "Encuentros",
+    "gb.c4": "Conoce robots raros entre peleas, como uno al que le encanta una buena apuesta.",
+    "gb.featTitle": "Características",
+    "gb.ft1": "Combate de peleas basado en mandar a volar, malabares, estampados contra la pared y reacciones en cadena.",
+    "gb.ft2": "Agarres y movimientos estrella como el Martinete, el Giro Gigante y el Azotón.",
+    "gb.ft3": "Un multiplicador de estilo que premia variar los movimientos en lugar de repetirlos.",
+    "gb.ft4": "Partidas llenas de peleas, arenas de supervivencia, tiendas y jefes.",
+    "gb.ft5": "Muchas piezas para armar un peleador distinto en cada partida.",
+    "gb.ft6": "Una avanzada con un equipo animado y mejoras permanentes.",
+    "gb.ft7": "Pixel art isométrico hecho a mano.",
+    "gb.ctaTitle": "Muy pronto.",
+    "gb.ctaSub": "La Fundición sigue construyendo. Nosotros también.",
+    "gb.ctaBtn": "Habla con el estudio",
+    "gb.musicCredit": "Música: “Patreon Challenge 12” de",
+    "gb.artCredit": "Arte de personajes y escenarios: Robot Series de",
+    "gb.alt0": "Un agarre por la espalda lanza a un robot contra otros robots y cajas, y desata una reacción en cadena.",
+    "gb.alt1": "Trancazo manda a volar a un grupo de robots en una sala isométrica mientras el medidor de combo cuenta los golpes.",
+    "gb.alt2": "Tuerca ofrece cuatro piezas para elegir, entre ellas Tiempo en el Aire, Agarre de Hierro y Rebote.",
+    "gb.alt3": "La tienda de Ficha en el depósito de suministros, con cuatro piezas a la venta y servicios para reabastecer, reparar y desarmar.",
+    "gb.alt4": "Grifo ofrece tres apuestas: una apuesta pequeña, apostar la mitad de tus engranajes o una jugada arriesgada."
+  };
+  var ja = {
+    "nav.games": "ゲーム",
+    "nav.studio": "スタジオ",
+    "nav.contact": "お問い合わせ",
+    "hero.tag": "インディーゲームスタジオ。<em>うるさくて意地悪な小さいゲーム</em>を作っています。",
+    "hero.cta": "ゲームを見る",
+    "marquee": "意地悪な小さいゲーム ✦ 恨みを込めて ✦ たっぷりの愛も込めて ✦&nbsp;",
+    "games.title": "ゲーム",
+    "games.badge": "開発中",
+    "games.more": "詳しく見る",
+    "gb.genres": "ベルトスクロールアクション · ローグライト · アイソメトリックピクセルアート · アクション",
+    "gb.tagline": "鋳造所をぶっ壊せ。街に声を取り戻せ。",
+    "gb.short": "Gearbreakは、アイソメトリックのピクセルアートで描かれたベルトスクロールアクション・ローグライトです。ロボットを打ち上げ、空中コンボを決め、壁やロボット同士に叩きつけて、ランごとに新しいファイトスタイルを組み立てよう。",
+    "studio.title": "スタジオ",
+    "studio.lead": "Vile Impはブラジルの小さなインディースタジオです。<mark>速くて</mark>、<mark>笑えて</mark>、ちょっぴり<mark>生意気な</mark>ゲームを作っています。",
+    "studio.v1": "手ざわりが第一。殴るのが楽しくなければ、ほかは何も意味がない。",
+    "studio.v2": "小さなチーム、大きな態度。変なアイデアをわざと追いかけます。",
+    "studio.v3": "プレイヤーのために。オープンに開発して、みんなの声に耳を傾けます。",
+    "contact.title": "お気軽にどうぞ。",
+    "contact.sub": "プレス、ビジネス、それともインプに文句を言いたいだけ？",
+    "footer": "無断転載を禁じます。インプは一匹も傷ついていません。",
+    "gb.back": "すべてのゲーム",
+    "gb.g1": "ベルトスクロールアクション",
+    "gb.g2": "ローグライト",
+    "gb.g3": "アイソメトリックピクセルアート",
+    "gb.g4": "アクション",
+    "gb.marquee": "打ち上げ ✦ 空中コンボ ✦ 壁激突 ✦ パイルドライバー ✦ ジャイアントスイング ✦ ボディスラム ✦&nbsp;",
+    "gb.aboutTitle": "ゲームについて",
+    "gb.p1": "街のみんなはサーキットで語り合っていた。鋳造所がいちばん大きな声を上げ、決して「ノー」と言わない機械を作り始めるまでは。",
+    "gb.p2": "最後の通りの先、小さな基地には、まだ「ノー」と言える仲間たちがいる。キミは彼らのファイター、ランブルだ。",
+    "gb.p3": "戦いの合間にプレイスタイルを変えるパーツを選び、次のランに向けて強くなって基地へ戻ろう。",
+    "gb.fStatus": "状況",
+    "gb.fGenre": "ジャンル",
+    "gb.fRun": "ラン",
+    "gb.fRunV": "鋳造所をめぐる、スピーディーで何度も遊べるラン",
+    "gb.fBoss": "ボス",
+    "gb.fBossV": "Widowmaker · スラッグヒープ",
+    "gb.fDev": "開発",
+    "gb.castTitle": "仲間たち",
+    "gb.castLead": "最後の通りの先で、今も鋳造所に「ノー」と言う仲間たち。戦いを支えるメンバーを紹介します。",
+    "gb.rumbleName": "ランブル",
+    "gb.rumbleTitle": "ファイター",
+    "gb.rumblePerk": "キミのこと",
+    "gb.rumbleQuote": "サーボ良好。拳は準備OK。",
+    "gb.rumbleTxt": "基地のファイター。ランのたびに鋳造所へ戻っていく。ロボットを打ち上げ、空中コンボを決め、壁に叩きつけたら、パーツを選んでランごとに新しいファイトスタイルを作り上げよう。",
+    "gb.merchantName": "トークン",
+    "gb.merchantTitle": "商人ボット",
+    "gb.merchantPerk": "車体アップグレード",
+    "gb.merchantQuote": "お客様の勝率は計算済みです。勝利されるまで、数字の公表はお断りいたします。",
+    "gb.merchantTxt": "基地でいちばんもうかっている店の主で、本人もそれを自慢します。コアで車体を永久にアップグレードできますが、買うたびにお金の責任についての演説つきです。",
+    "gb.elderName": "サビ",
+    "gb.elderTitle": "長老ボット",
+    "gb.elderPerk": "技",
+    "gb.elderQuote": "初めての勝利は昨日のことのように覚えておる！ まあ、昨日のことは覚えておらんがの。",
+    "gb.elderTxt": "基地でいちばん年寄りのボットで、いつの時代のものか誰にもわからない戦争の古参兵。新しいフィニッシュ技、投げ技、ダッシュ技を教えてくれるほか、大一番の前にはアリーナの扉のそばで待っています。",
+    "gb.barkeepName": "タップス",
+    "gb.barkeepTitle": "マスターボット",
+    "gb.barkeepPerk": "スターターチップ",
+    "gb.barkeepQuote": "イカサマのサイコロ？ オレは「慎重なサイコロ」って呼んでるぜ。",
+    "gb.barkeepTxt": "飲み物を注ぎ、カードを配り、街でいちばん気さくな勝負を仕切っています。ランに持っていくスターターチップを選び、戦いの合間にはテーブルで運試しもできます。",
+    "gb.engineerName": "レンチ",
+    "gb.engineerTitle": "技師ボット",
+    "gb.engineerPerk": "ガジェット",
+    "gb.engineerQuote": "永久に動くバッテリーを発明したよ！ ただ、動かせるのは自分自身だけなんだ。",
+    "gb.engineerTxt": "爆発のことを「想定どおりの結果」と呼ぶ発明家。工房でディスチャージ、エネルギーシールド、EMPなどのガジェットを解放して、どんな場面にも使える切り札を手に入れよう。",
+    "gb.petsTitle": "基地のペットたち",
+    "gb.petsTxt": "基地でのんびり過ごし、通りかかるキミを目で追い、ロード画面ではランブルのあとをついてきます。",
+    "gb.catName": "ヒューズ",
+    "gb.cat": "ネコ",
+    "gb.catLine": "ゆっくりとまばたきする。合格という意味だ。",
+    "gb.dogName": "ピストン",
+    "gb.dog": "イヌ",
+    "gb.dogLine": "足元にボルトを置く。プレゼントだ。",
+    "gb.frogName": "リベット",
+    "gb.frog": "カエル",
+    "gb.frogLine": "ぴくりとも動かない。これが愛情表現らしい。",
+    "gb.shotsTitle": "スクリーンショット",
+    "gb.c1t": "戦闘",
+    "gb.c1": "ロボットを打ち上げ、いろいろな技をつないでスタイル倍率を上げよう。",
+    "gb.c2t": "パーツ",
+    "gb.c2": "戦いのたびにパーツを1つ選び、ランごとに新しいビルドを作ろう。",
+    "gb.c3t": "補給所",
+    "gb.c3": "ギアを使って、新しいパーツや修理、入れ替えを。",
+    "gb.c4t": "出会い",
+    "gb.c4": "戦いの合間に、勝負好きのロボットなど、ちょっと変わったロボットたちに出会えます。",
+    "gb.featTitle": "特長",
+    "gb.ft1": "打ち上げ、空中コンボ、壁激突、連鎖反応を軸にした格闘アクション。",
+    "gb.ft2": "つかみと、パイルドライバー、ジャイアントスイング、ボディスラムなどの必殺技。",
+    "gb.ft3": "同じ技の連発より、技を組み合わせるほど得をするスタイル倍率。",
+    "gb.ft4": "戦闘、サバイバルアリーナ、ショップ、ボスが詰まったラン。",
+    "gb.ft5": "ランごとに違うファイターを作れる、たくさんのパーツ。",
+    "gb.ft6": "にぎやかな仲間たちと永久アップグレードがそろった基地。",
+    "gb.ft7": "手描きのアイソメトリックピクセルアート。",
+    "gb.ctaTitle": "近日公開。",
+    "gb.ctaSub": "鋳造所はまだ建設中。私たちも同じです。",
+    "gb.ctaBtn": "スタジオに連絡する",
+    "gb.musicCredit": "音楽：「Patreon Challenge 12」 作：",
+    "gb.artCredit": "キャラクター・背景アート：Robot Series 作：",
+    "gb.alt0": "背後からのつかみでロボットを投げ飛ばし、ほかのロボットや木箱にぶつけて連鎖クラッシュを起こす。",
+    "gb.alt1": "アイソメトリックの部屋でランブルがロボットの群れを打ち上げ、コンボメーターがヒット数を数えている。",
+    "gb.alt2": "レンチが、滞空時間、アイアングリップ、バンクショットなど4つのパーツから選ばせてくれる。",
+    "gb.alt3": "トークンの補給所。4つのパーツが売られていて、入れ替え、修理、解体のサービスもある。",
+    "gb.alt4": "タップスが3つの勝負を持ちかける：小さな勝負、ギアの半分で勝負、大穴。"
+  };
+  var zh = {
+    "nav.games": "游戏",
+    "nav.studio": "工作室",
+    "nav.contact": "联系",
+    "hero.tag": "一家独立游戏工作室，专做<em>吵闹又坏心眼的小游戏</em>。",
+    "hero.cta": "看看我们的游戏",
+    "marquee": "坏心眼的小游戏 ✦ 怀着怨气制作 ✦ 也怀着满满的爱 ✦&nbsp;",
+    "games.title": "游戏",
+    "games.badge": "开发中",
+    "games.more": "了解更多",
+    "gb.genres": "清版动作 · Roguelite · 等距像素风 · 动作",
+    "gb.tagline": "拆掉铸造厂。把声音还给这座城市。",
+    "gb.short": "Gearbreak 是一款等距像素风的清版动作 Roguelite 游戏。把机器人击飞、浮空连击，砸向墙壁、砸向彼此，每一局都打造全新的战斗风格。",
+    "studio.title": "工作室",
+    "studio.lead": "Vile Imp 是一家来自巴西的小小独立工作室。我们做的游戏<mark>快</mark>、<mark>好笑</mark>，还有一点点<mark>没礼貌</mark>。",
+    "studio.v1": "手感第一。如果打东西不好玩，别的都不重要。",
+    "studio.v2": "团队虽小，态度很大。我们故意追逐奇怪的点子。",
+    "studio.v3": "为玩家而做。我们公开开发，也认真倾听。",
+    "contact.title": "打个招呼吧。",
+    "contact.sub": "媒体、商务合作，还是只想冲小恶魔大喊？",
+    "footer": "保留所有权利。没有小恶魔在制作过程中受到伤害。",
+    "gb.back": "全部游戏",
+    "gb.g1": "清版动作",
+    "gb.g2": "Roguelite",
+    "gb.g3": "等距像素风",
+    "gb.g4": "动作",
+    "gb.marquee": "击飞 ✦ 浮空连击 ✦ 撞墙 ✦ 打桩机 ✦ 大回旋 ✦ 身体冲撞 ✦&nbsp;",
+    "gb.aboutTitle": "关于游戏",
+    "gb.p1": "在回路城，人人都能畅所欲言，直到铸造厂的声音盖过了所有人，开始制造永远不会说“不”的机器。",
+    "gb.p2": "在最后一条街的尽头，一座小小的前哨站里，还有几个朋友敢说“不”。你就是他们的斗士：轰隆。",
+    "gb.p3": "在战斗之间挑选能改变玩法的零件，然后变得更强，回到前哨站迎接下一局。",
+    "gb.fStatus": "状态",
+    "gb.fGenre": "类型",
+    "gb.fRun": "一局",
+    "gb.fRunV": "在铸造厂里快节奏、可反复游玩的一局又一局",
+    "gb.fBoss": "首领",
+    "gb.fBossV": "Widowmaker · Slagheap",
+    "gb.fDev": "开发者",
+    "gb.castTitle": "伙伴们",
+    "gb.castLead": "最后一条街的尽头，还有几个朋友对铸造厂说“不”。来认识一下撑起这场战斗的伙伴吧。",
+    "gb.rumbleName": "轰隆",
+    "gb.rumbleTitle": "斗士",
+    "gb.rumblePerk": "就是你",
+    "gb.rumbleQuote": "伺服电机预热完毕。拳头准备就绪。",
+    "gb.rumbleTxt": "前哨站的斗士，每一局都重返铸造厂。把机器人击飞、浮空连击、砸向墙壁，再挑选零件，让每一局都变成全新的战斗风格。",
+    "gb.merchantName": "代币",
+    "gb.merchantTitle": "商人机器人",
+    "gb.merchantPerk": "机体升级",
+    "gb.merchantQuote": "我已经算好了你的胜率。在你获胜之前，我拒绝公布这些数字。",
+    "gb.merchantTxt": "经营着前哨站最赚钱的商店，而且一定会告诉你这一点。用核心购买永久的机体升级，每笔交易都附赠一段关于财务责任的演讲。",
+    "gb.elderName": "老锈",
+    "gb.elderTitle": "长老机器人",
+    "gb.elderPerk": "招式",
+    "gb.elderQuote": "我第一次胜利的情景，就像昨天一样历历在目！不过昨天的事，我倒是记不起来了。",
+    "gb.elderTxt": "前哨站最年长的机器人，参加过的战争连年代都没人说得清。在这里学习新的终结技、抓取技和冲刺技；大决战之前，记得去竞技场门口找老锈。",
+    "gb.barkeepName": "龙头",
+    "gb.barkeepTitle": "掌柜机器人",
+    "gb.barkeepPerk": "初始芯片",
+    "gb.barkeepQuote": "灌铅的骰子？我管它叫“谨慎的骰子”。",
+    "gb.barkeepTxt": "倒饮料、发牌，还主持着城里最友好的押注。挑选你带进每一局的初始芯片，战斗之间也可以在桌边试试手气。",
+    "gb.engineerName": "扳手",
+    "gb.engineerTitle": "工程机器人",
+    "gb.engineerPerk": "功能装置",
+    "gb.engineerQuote": "我发明了一块永远用不完的电池！可惜它只能给自己供电。",
+    "gb.engineerTxt": "把爆炸称作“预期结果”。在军械库里解锁放电、能量护盾和电磁脉冲等功能装置，让你的斗士在任何场合都有一招。",
+    "gb.petsTitle": "前哨站的宠物",
+    "gb.petsTxt": "它们在前哨站里四处闲晃，你经过时会转头看你，在加载画面里还会跟在轰隆身后。",
+    "gb.catName": "保险丝",
+    "gb.cat": "猫",
+    "gb.catLine": "慢慢地对你眨眼。意思是你通过了。",
+    "gb.dogName": "活塞",
+    "gb.dog": "狗",
+    "gb.dogLine": "在你脚边放下一颗螺栓。是礼物。",
+    "gb.frogName": "铆钉",
+    "gb.frog": "青蛙",
+    "gb.frogLine": "一动不动地坐着。这是它表达喜爱的方式。",
+    "gb.shotsTitle": "游戏截图",
+    "gb.c1t": "战斗",
+    "gb.c1": "击飞机器人，串联不同的招式来提升风格倍率。",
+    "gb.c2t": "零件",
+    "gb.c2": "每场战斗后挑选一个零件，每一局都打造新的配置。",
+    "gb.c3t": "补给站",
+    "gb.c3": "用齿轮购买新零件、维修和补货。",
+    "gb.c4t": "奇遇",
+    "gb.c4": "在战斗之间遇见古怪的机器人，比如一个特别爱押注的家伙。",
+    "gb.featTitle": "特色",
+    "gb.ft1": "以击飞、浮空连击、撞墙和连锁反应为核心的格斗战斗。",
+    "gb.ft2": "抓取技与招牌招式，例如打桩机、大回旋和身体冲撞。",
+    "gb.ft3": "鼓励混搭招式、而不是重复同一招的风格倍率。",
+    "gb.ft4": "每一局都充满战斗、生存竞技场、商店和首领。",
+    "gb.ft5": "大量零件，每一局都能打造不同的斗士。",
+    "gb.ft6": "热闹的前哨站，有活泼的伙伴和永久升级。",
+    "gb.ft7": "手工绘制的等距像素美术。",
+    "gb.ctaTitle": "即将推出。",
+    "gb.ctaSub": "铸造厂还在建造中。我们也是。",
+    "gb.ctaBtn": "联系工作室",
+    "gb.musicCredit": "音乐：《Patreon Challenge 12》，作者",
+    "gb.artCredit": "角色与场景美术：Robot Series，作者",
+    "gb.alt0": "一记背摔把机器人扔向其他机器人和箱子，引发连锁撞击。",
+    "gb.alt1": "轰隆在等距房间里击飞一群机器人，连击计量表正在计数。",
+    "gb.alt2": "扳手提供四个零件供你选择，包括滞空时间、铁腕和折返球。",
+    "gb.alt3": "代币在补给站的商店，有四个零件出售，还提供补货、维修和拆解服务。",
+    "gb.alt4": "龙头提出三种押注：小押一把、押上一半齿轮，或者搏一把冷门。"
+  };
+
+  /* The five languages, in the order the drop-down lists them. `html` is the page's lang attribute (it also picks the
+     right CJK glyphs), `title` the key of the data-title-* attribute holding that language's page title. */
+  var LANGS = {
+    en: { dict: null, html: 'en', short: 'EN', name: 'English', flag: 'us', label: 'Language' },
+    pt: { dict: pt, html: 'pt-BR', short: 'PT', name: 'Português', flag: 'br', label: 'Idioma' },
+    es: { dict: es, html: 'es', short: 'ES', name: 'Español', flag: 'es', label: 'Idioma' },
+    ja: { dict: ja, html: 'ja', short: 'JA', name: '日本語', flag: 'jp', label: '言語' },
+    zh: { dict: zh, html: 'zh-CN', short: 'ZH', name: '简体中文', flag: 'cn', label: '语言' }
+  };
+
   var nodes = document.querySelectorAll('[data-i18n]');
   var en = {};
   nodes.forEach(function (n) { en[n.dataset.i18n] = n.innerHTML; });
   var alts = document.querySelectorAll('[data-i18n-alt]');
   alts.forEach(function (n) { en[n.dataset.i18nAlt] = n.alt; });
-  var btn = document.getElementById('lang');
+  LANGS.en.dict = en;
 
-  function apply(lang) {
-    var dict = lang === 'pt' ? pt : en;
-    nodes.forEach(function (n) { var k = n.dataset.i18n; if (dict[k]) n.innerHTML = dict[k]; });
-    alts.forEach(function (n) { var k = n.dataset.i18nAlt; if (dict[k]) n.alt = dict[k]; });
-    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
-    var t = document.documentElement.dataset['title' + (lang === 'pt' ? 'Pt' : 'En')];
+  var box = document.getElementById('lang');
+  var toggle = box.querySelector('.lang__btn');
+  var menu = box.querySelector('.lang__menu');
+  var options = Array.prototype.slice.call(menu.querySelectorAll('[data-lang]'));
+  var current = 'en';
+
+  function apply(code) {
+    var L = LANGS[code] || LANGS.en;
+    code = LANGS[code] ? code : 'en';
+    current = code;
+    nodes.forEach(function (n) { var k = n.dataset.i18n; n.innerHTML = L.dict[k] || en[k]; });
+    alts.forEach(function (n) { var k = n.dataset.i18nAlt; n.alt = L.dict[k] || en[k]; });
+    document.documentElement.lang = L.html;
+    var t = document.documentElement.getAttribute('data-title-' + code) || document.documentElement.getAttribute('data-title-en');
     if (t) document.title = t;
-    btn.dataset.lang = lang;
-    btn.setAttribute('aria-label', lang === 'pt' ? 'Switch to English' : 'Mudar para português');
-    try { localStorage.setItem('vi-lang', lang); } catch (e) {}
+    toggle.querySelector('.lang__flag').src = 'assets/flags/' + L.flag + '.svg';
+    toggle.querySelector('.lang__code').textContent = L.short;
+    toggle.setAttribute('aria-label', L.label + ': ' + L.name);
+    options.forEach(function (o) { o.setAttribute('aria-selected', o.dataset.lang === code ? 'true' : 'false'); });
+    try { localStorage.setItem('vi-lang', code); } catch (e) {}
   }
 
-  btn.addEventListener('click', function () { apply(btn.dataset.lang === 'pt' ? 'en' : 'pt'); });
+  /* The drop-down opens downwards under the pill; Esc, a click outside or picking a language closes it. */
+  function open(state, focusFirst) {
+    box.classList.toggle('is-open', state);
+    toggle.setAttribute('aria-expanded', state ? 'true' : 'false');
+    if (state && focusFirst) {
+      var sel = options.filter(function (o) { return o.dataset.lang === current; })[0] || options[0];
+      sel.focus();
+    }
+  }
+  toggle.addEventListener('click', function (e) { e.stopPropagation(); open(!box.classList.contains('is-open'), e.detail === 0); });
+  options.forEach(function (o, i) {
+    o.addEventListener('click', function (e) { e.stopPropagation(); apply(o.dataset.lang); open(false); toggle.focus(); });
+    o.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown') { e.preventDefault(); options[(i + 1) % options.length].focus(); }
+      if (e.key === 'ArrowUp') { e.preventDefault(); options[(i - 1 + options.length) % options.length].focus(); }
+    });
+  });
+  toggle.addEventListener('keydown', function (e) { if (e.key === 'ArrowDown') { e.preventDefault(); open(true, true); } });
+  document.addEventListener('click', function (e) { if (!box.contains(e.target)) open(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && box.classList.contains('is-open')) { open(false); toggle.focus(); } });
+
   var saved = null;
   try { saved = localStorage.getItem('vi-lang'); } catch (e) {}
-  apply(saved === 'pt' ? 'pt' : 'en');
+  apply(LANGS[saved] ? saved : 'en');
   document.getElementById('year').textContent = new Date().getFullYear();
 })();
