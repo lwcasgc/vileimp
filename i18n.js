@@ -30,7 +30,7 @@
     'gb.alt0': 'Um agarrão pelas costas arremessa um robô contra outros robôs e caixas, causando uma reação em cadeia.',
     'gb.alt1': 'Tranco lança um grupo de robôs numa sala isométrica enquanto o medidor de combo conta os golpes.',
     'gb.alt2': 'Wrench oferece quatro peças para escolher, entre elas Hang Time, Iron Grip e Bank Shot.',
-    'gb.alt3': 'A loja de Token no depósito de suprimentos, com cinco peças à venda e serviços para repor, reparar e desmontar.',
+    'gb.alt3': 'A loja de Token no depósito de suprimentos, com quatro peças à venda e serviços para repor, reparar e desmontar.',
     'gb.alt4': 'Taps oferece três apostas: uma aposta pequena, apostar metade das suas engrenagens ou um tiro no escuro.',
     'gb.featTitle': 'Destaques',
     'gb.ft1': 'Combate de brigão baseado em lançamentos, malabarismos, esmagadas na parede e reações em cadeia.',
