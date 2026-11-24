@@ -208,7 +208,7 @@ a { color: inherit; }
 }
 
 /* ===== Gearbreak page: the game's own look (Dead Revolver face, paper + ink + orange/cyan) ===== */
-@font-face { font-family: 'Dead Revolver'; src: url('assets/fonts/DeadRevolverGame.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Dead Revolver'; src: url('assets/fonts/DeadRevolverGame.ttf?v=2') format('truetype'); font-display: swap; }
 body.gb {
   --gb-ink: #181121; --gb-ink2: #2a2040; --gb-paper: #ffffff; --gb-paper-off: #d6d6de;
   --gb-orange: #ea7436; --gb-orange-dark: #bb5d2b; --gb-cyan: #43f0ff; --gb-gold: #ffcc4d;
@@ -350,7 +350,7 @@ body.gb, body.gb *, .feature--gb, .feature--gb * { text-transform: none !importa
 .music-box { position: fixed; right: 16px; bottom: 16px; z-index: 20; display: flex; align-items: center; gap: 10px;
   background: #fff; border: 3px solid #181121; border-radius: 4px; box-shadow: 4px 4px 0 #ea7436; padding: 6px 12px 6px 6px; }
 .music { display: inline-flex; align-items: center; gap: 10px;
-  font-family: 'Dead Revolver', 'Rubik', system-ui, sans-serif; font-size: .9rem; letter-spacing: .04em; cursor: pointer;
+  font-family: inherit; font-size: .9rem; letter-spacing: .04em; cursor: pointer;
   background: transparent; color: #181121; border: 0; box-shadow: none; padding: 4px 6px; }
 .music img { width: 20px; height: 28px; image-rendering: pixelated; }
 .music:hover, .music:focus-visible { color: #bb5d2b; outline: none; }

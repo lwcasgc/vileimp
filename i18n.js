@@ -217,7 +217,7 @@
     "gb.fRun": "ラン",
     "gb.fRunV": "鋳造所をめぐる、スピーディーで何度も遊べるラン",
     "gb.fBoss": "ボス",
-    "gb.fBossV": "Widowmaker · スラッグヒープ",
+    "gb.fBossV": "Widowmaker · Slagheap",
     "gb.fDev": "開発",
     "gb.castTitle": "仲間たち",
     "gb.castLead": "最後の通りの先で、今も鋳造所に「ノー」と言う仲間たち。戦いを支えるメンバーを紹介します。",
