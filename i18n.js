@@ -22,6 +22,16 @@
     'gb.fStatus': 'Status', 'gb.fGenre': 'Gêneros', 'gb.fRun': 'Uma partida',
     'gb.fRunV': 'Nove fases: lutas, arenas de sobrevivência, depósitos de suprimentos e dois chefes',
     'gb.fBoss': 'Chefes', 'gb.fBossV': 'Tanque-Aranha · Golem de Sucata', 'gb.fDev': 'Desenvolvedora',
+    'gb.shotsTitle': 'Imagens',
+    'gb.c1t': 'Combate', 'gb.c1': 'Lance robôs e encadeie golpes diferentes para subir o seu multiplicador de estilo.',
+    'gb.c2t': 'Peças', 'gb.c2': 'Escolha uma peça depois de cada luta e monte uma build nova a cada partida.',
+    'gb.c3t': 'Depósitos de suprimentos', 'gb.c3': 'Gaste suas engrenagens em peças novas, reparos e reposições.',
+    'gb.c4t': 'Encontros', 'gb.c4': 'Conheça robôs esquisitos entre as lutas, como um que adora uma boa aposta.',
+    'gb.alt0': 'Um agarrão pelas costas arremessa um robô contra outros robôs e caixas, causando uma reação em cadeia.',
+    'gb.alt1': 'O lutador lança um grupo de robôs numa sala isométrica enquanto o medidor de combo conta os golpes.',
+    'gb.alt2': 'Wrench oferece quatro peças para escolher, entre elas Hang Time, Iron Grip e Bank Shot.',
+    'gb.alt3': 'A loja de Token no depósito de suprimentos, com cinco peças à venda e serviços para repor, reparar e desmontar.',
+    'gb.alt4': 'Taps oferece três apostas: uma aposta pequena, apostar metade das suas engrenagens ou um tiro no escuro.',
     'gb.featTitle': 'Destaques',
     'gb.ft1': 'Combate de brigão baseado em lançamentos, malabarismos, esmagadas na parede e reações em cadeia.',
     'gb.ft2': 'Agarrões e golpes marcantes como o Bate-Estaca, o Giro Gigante e a Pancada no Chão.',
@@ -46,11 +56,14 @@
   var nodes = document.querySelectorAll('[data-i18n]');
   var en = {};
   nodes.forEach(function (n) { en[n.dataset.i18n] = n.innerHTML; });
+  var alts = document.querySelectorAll('[data-i18n-alt]');
+  alts.forEach(function (n) { en[n.dataset.i18nAlt] = n.alt; });
   var btn = document.getElementById('lang');
 
   function apply(lang) {
     var dict = lang === 'pt' ? pt : en;
     nodes.forEach(function (n) { var k = n.dataset.i18n; if (dict[k]) n.innerHTML = dict[k]; });
+    alts.forEach(function (n) { var k = n.dataset.i18nAlt; if (dict[k]) n.alt = dict[k]; });
     document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
     var t = document.documentElement.dataset['title' + (lang === 'pt' ? 'Pt' : 'En')];
     if (t) document.title = t;
