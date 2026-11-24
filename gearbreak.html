@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
   <script>(function(){try{var f=sessionStorage.getItem("vt");if(f){sessionStorage.removeItem("vt");document.documentElement.className+=" vt-in vt-"+f}}catch(e){}})();</script>
-  <link rel="stylesheet" href="style.css?v=19">
+  <link rel="stylesheet" href="style.css?v=20">
 </head>
 <body class="gb">
   <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="gear" viewBox="0 0 100 100"><path d="M43 4h14l2 12a35 35 0 0 1 9 4l10-7 10 10-7 10a35 35 0 0 1 4 9l12 2v14l-12 2a35 35 0 0 1-4 9l7 10-10 10-10-7a35 35 0 0 1-9 4l-2 12H43l-2-12a35 35 0 0 1-9-4l-10 7-10-10 7-10a35 35 0 0 1-4-9L3 57V43l12-2a35 35 0 0 1 4-9l-7-10 10-10 10 7a35 35 0 0 1 9-4z M50 33a17 17 0 1 0 0.01 0z" fill-rule="evenodd"/></symbol></svg>
@@ -209,8 +209,7 @@
       var words = { en: ['Music: on', 'Music: off', 'Click anywhere for music', 'Music: paused', 'Play music', 'Pause music'], pt: ['Música: ligada', 'Música: desligada', 'Clique para ouvir a música', 'Música: pausada', 'Tocar música', 'Pausar música'] };
       function label() {
         var w = words[document.documentElement.lang === 'pt-BR' ? 'pt' : 'en'];
-        l.textContent = muted ? w[1] : (playing ? w[0] : (userPaused ? w[3] : w[2]));
-        b.classList.toggle('is-waiting', !muted && !playing && !userPaused);
+        l.textContent = playing && !muted ? w[0] : w[1];
         pb.classList.toggle('is-waiting', !muted && !playing && !userPaused);
         pi.src = playing ? 'assets/gearbreak/pause.png' : 'assets/gearbreak/play.png';
         pb.setAttribute('aria-label', playing ? w[5] : w[4]);

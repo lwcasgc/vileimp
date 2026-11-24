@@ -339,7 +339,7 @@ body.gb, body.gb *, .feature--gb, .feature--gb * { text-transform: none !importa
 .music { display: inline-flex; align-items: center; gap: 10px;
   font-family: 'Dead Revolver', 'Rubik', system-ui, sans-serif; font-size: .9rem; letter-spacing: .04em; cursor: pointer;
   background: transparent; color: #181121; border: 0; box-shadow: none; padding: 4px 6px; }
-.music img { width: 20px; height: 20px; image-rendering: pixelated; }
+.music img { width: 32px; height: 32px; image-rendering: pixelated; }
 .music:hover, .music:focus-visible { color: #bb5d2b; outline: none; }
 .music.is-off { color: #8a8a99; }
 .music.is-off img { opacity: .45; }
@@ -375,11 +375,11 @@ html.vt-in.vt-game::after { content: ''; position: fixed; left: 50%; top: 50%; w
 @media (prefers-reduced-motion: reduce) { .music.is-waiting { animation: none; } }
 
 /* play / pause button beside the volume chip */
-.music-play { display: inline-grid; place-items: center; width: 34px; height: 34px; background: #ea7436; border: 3px solid #181121; border-radius: 4px;
+.music-play { display: inline-grid; place-items: center; width: 44px; height: 44px; background: #ea7436; border: 3px solid #181121; border-radius: 4px;
   box-shadow: 3px 3px 0 #181121; cursor: pointer; padding: 0; }
-.music-play img { width: 18px; height: 18px; image-rendering: pixelated; }
+.music-play img { width: 32px; height: 32px; image-rendering: pixelated; }
 .music-play:hover, .music-play:focus-visible { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 #181121; outline: none; }
 .music-play.is-waiting { animation: music-play-wait 1.4s ease-in-out infinite; }
 @keyframes music-play-wait { 50% { background: #fff; } }
 @media (prefers-reduced-motion: reduce) { .music-play.is-waiting { animation: none; } }
-@media (max-width: 860px) { .music-play { width: 30px; height: 30px; } }
+@media (max-width: 860px) { .music-play { width: 32px; height: 32px; } .music-play img, .music img { width: 16px; height: 16px; } }
