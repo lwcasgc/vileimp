@@ -298,3 +298,13 @@ body.gb .gb-features .section__title::after { color: var(--gb-orange); }
 .feature--gb .feature__body p { color: #e6e3ee; }
 .feature--gb .btn { background: var(--gb-orange); color: var(--gb-ink); border-color: var(--gb-ink); border-radius: 4px; box-shadow: 5px 5px 0 #fff; font-weight: 400; }
 @media (max-width: 860px) { .feature--gb .feature__art { border-right: 0; border-bottom: 3px solid var(--gb-orange); } }
+
+/* Home card art: a real screenshot, the gear tucked in a corner, the title over it */
+.feature--gb .feature__art { padding: 0; place-items: end start; min-height: 440px; }
+.feature--gb .feature__shot { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 45%; }
+.feature--gb .feature__art::after { content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to top, rgba(24,17,33,.95) 0%, rgba(24,17,33,.55) 38%, transparent 70%); }
+.feature--gb .gear { width: 150px; max-width: none; top: auto; bottom: 18px; right: 18px; left: auto; z-index: 2; animation-duration: 20s; }
+.feature--gb .feature__name { z-index: 2; margin: 0 0 34px 30px; transform: rotate(-3deg); transform-origin: left bottom; font-size: clamp(2.4rem, 5.4vw, 4.4rem); }
+.feature--gb .badge { z-index: 2; }
+@media (max-width: 860px) { .feature--gb .feature__art { min-height: 340px; } .feature--gb .gear { width: 100px; } }
