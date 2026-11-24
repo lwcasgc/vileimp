@@ -353,3 +353,23 @@ body.gb, body.gb *, .feature--gb, .feature--gb * { text-transform: none !importa
 .footer__credit { font-size: .8rem; }
 .footer__credit a { text-decoration: underline; text-underline-offset: 3px; }
 .footer__credit a:hover, .footer__credit a:focus-visible { color: var(--white); outline: none; }
+
+/* Page transition (transition.js): the arriving page's cover fades out, the leaving page's cover fades in */
+html.vt-game { --vt: #181121; }
+html.vt-studio { --vt: #0a0a0a; }
+html.vt-in::before { content: ''; position: fixed; inset: 0; z-index: 9999; background: var(--vt); pointer-events: none;
+  animation: vt-out .7s ease .1s both; }
+html.vt-in.vt-game::after { content: ''; position: fixed; left: 50%; top: 50%; width: 96px; height: 96px; margin: -48px 0 0 -48px; z-index: 10000;
+  background: url('assets/gearbreak/gear_orange.png') center / contain no-repeat; image-rendering: pixelated; pointer-events: none;
+  animation: spin 1.6s linear infinite, vt-out .5s ease .15s both; }
+@keyframes vt-out { to { opacity: 0; visibility: hidden; } }
+.vt-leave { position: fixed; inset: 0; z-index: 9999; opacity: 0; transition: opacity .32s ease; pointer-events: all; }
+.vt-leave.vt-game { background: #181121; }
+.vt-leave.vt-studio { background: #0a0a0a; }
+.vt-leave.on { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { html.vt-in::before, html.vt-in::after { display: none; } }
+
+/* until the browser lets the music play (it needs a click or key first) the chip says so and pulses */
+.music.is-waiting { animation: music-wait 1.4s ease-in-out infinite; }
+@keyframes music-wait { 50% { color: #ea7436; } }
+@media (prefers-reduced-motion: reduce) { .music.is-waiting { animation: none; } }
