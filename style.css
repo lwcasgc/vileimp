@@ -509,3 +509,7 @@ body.gb .gb-hero__title { text-shadow: none; transform: none; line-height: 0; }
 /* the game's logo picture on the Games card (pixel art: no tilt, no smoothing, no text shadow) */
 .feature--gb .feature__name { transform: none; text-shadow: none; line-height: 0; }
 .feature__logo { display: block; width: clamp(240px, 36vw, 440px); height: auto; image-rendering: pixelated; }
+
+/* the screenshots stay straight: a rotated pixel-art picture is resampled and its small text turns to mush */
+.shot--hero { transform: none; }
+.shot--hero:hover, .shot--hero:focus-visible { transform: translate(-3px,-3px); }
