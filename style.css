@@ -516,3 +516,7 @@ body.gb .shot--hero { max-width: 966px; transform: rotate(1.2deg); }   /* 960 px
 body.gb .shot--hero:hover, body.gb .shot--hero:focus-visible { transform: rotate(0deg) translate(-3px,-3px); }
 body.gb .gb-hero__inner:has(.shot--hero) { max-width: 1040px; }
 @media (max-width: 860px) { body.gb .shot--hero, body.gb .shot--hero:hover, body.gb .shot--hero:focus-visible { transform: none; } }
+
+/* image-rendering is inherited: the checker's pixelated setting on these sections must not reach the pictures inside
+   them (the studio's smooth logo in the footer went blocky) */
+body.gb .footer *, body.gb .gb-features * { image-rendering: auto; }
