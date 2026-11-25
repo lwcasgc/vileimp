@@ -46,7 +46,7 @@ a { color: inherit; }
 /* Hero */
 .hero { min-height: 100vh; display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: clamp(24px, 5vw, 80px);
   padding: 110px clamp(20px, 6vw, 96px) 60px; position: relative; overflow: hidden; }
-.hero::before { content: ''; position: absolute; width: 70vmax; height: 70vmax; left: -15vmax; top: 50%; transform: translateY(-50%);
+.hero::before { content: ''; position: absolute; width: 50vmax; height: 50vmax; left: -5vmax; top: 50%; transform: translateY(-50%);
   background: radial-gradient(circle, rgba(247,34,34,.22), transparent 60%); pointer-events: none; }
 .hero__imp { position: relative; }
 .hero__imp img { width: auto; max-width: min(100%, 460px); max-height: calc(100vh - 400px); display: block; margin: 0 auto; filter: drop-shadow(0 30px 40px rgba(0,0,0,.6)); }
