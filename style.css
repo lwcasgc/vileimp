@@ -227,6 +227,7 @@ body.gb .lang__menu { background: #0a0a0a; border-color: var(--gb-paper); border
 body.gb .lang__menu button { color: var(--gb-paper); font-weight: 400; border-radius: 4px; }
 body.gb .lang__menu button[aria-selected="true"] { color: var(--gb-cyan); }
 body.gb .btn { background: var(--gb-orange); color: var(--gb-ink); border-color: var(--gb-ink); box-shadow: 5px 5px 0 var(--gb-ink); }
+body.gb .btn { border-radius: 4px; }   /* the game's square buttons, as the feature card and the blog buttons, not the studio pill */
 body.gb .btn--dark { background: var(--gb-ink); color: var(--gb-paper); border-color: var(--gb-ink); box-shadow: 5px 5px 0 var(--gb-paper); }
 body.gb .btn--dark:hover, body.gb .btn--dark:focus-visible { box-shadow: 7px 7px 0 var(--gb-paper); }
 
@@ -500,3 +501,7 @@ a.post__logo:hover { transform: translate(-2px,-2px); box-shadow: 8px 8px 0 var(
 .gb-post { min-height: 70vh; }
 .music-box[hidden] { display: none; }
 .post__more { margin-top: 6px; margin-bottom: 0; }
+
+/* the game's logo picture as the page title: pixel art, so no smoothing; whole multiples keep it sharp */
+.gb-hero__logo { display: block; width: min(100%, 990px); height: auto; margin: 0 auto; image-rendering: pixelated; }
+body.gb .gb-hero__title { text-shadow: none; transform: none; line-height: 0; }
