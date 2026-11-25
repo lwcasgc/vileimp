@@ -6,8 +6,9 @@
     try { u = new URL(href, location.href); } catch (e) { return null; }
     if (u.origin !== location.origin) return null;
     var p = u.pathname.split('/').pop();
-    if (p === 'gearbreak.html' && !/gearbreak\.html$/.test(location.pathname)) return 'game';
-    if ((p === 'index.html' || p === '') && /gearbreak\.html$/.test(location.pathname)) return 'studio';
+    var inGame = /(gearbreak|blog-[\w-]+)\.html$/.test(location.pathname);
+    if (p === 'gearbreak.html' && !inGame) return 'game';
+    if ((p === 'index.html' || p === '') && inGame) return 'studio';
     return null;
   }
   document.addEventListener('click', function (e) {
