@@ -245,12 +245,13 @@
   });
 
   /* ---------- contact form ---------- */
+  var pageLoadedAt = Date.now();
   var contactMsg = {
-    en: ['Sending...', 'Message sent! The imp got it.', 'Could not send right now. Please email vileimpgames@gmail.com.', 'Form not connected yet — replace YOUR_ACCESS_KEY in the HTML.'],
-    pt: ['Enviando...', 'Mensagem enviada! O diabinho recebeu.', 'Não foi possível enviar agora. Envie para vileimpgames@gmail.com.', 'Formulário ainda não conectado — troque YOUR_ACCESS_KEY no HTML.'],
-    es: ['Enviando...', '¡Mensaje enviado! El diablillo lo recibió.', 'No se pudo enviar ahora. Escribe a vileimpgames@gmail.com.', 'Formulario aún no conectado — cambia YOUR_ACCESS_KEY en el HTML.'],
-    ja: ['送信中...', '送信しました！インプに届きました。', '送信できませんでした。vileimpgames@gmail.com までメールしてください。', 'フォームが未設定です。HTMLの YOUR_ACCESS_KEY を置き換えてください。'],
-    zh: ['发送中...', '发送成功！小恶魔收到了。', '暂时无法发送，请发邮件至 vileimpgames@gmail.com。', '表单尚未配置——请在 HTML 中替换 YOUR_ACCESS_KEY。']
+    en: ['Sending...', 'Message sent! The imp got it.', 'Could not send right now. Please email vileimpgames@gmail.com.', 'Form not connected yet — replace YOUR_ACCESS_KEY in the HTML.', 'Please tick the captcha box first.'],
+    pt: ['Enviando...', 'Mensagem enviada! O diabinho recebeu.', 'Não foi possível enviar agora. Envie para vileimpgames@gmail.com.', 'Formulário ainda não conectado — troque YOUR_ACCESS_KEY no HTML.', 'Marque a caixa do captcha primeiro.'],
+    es: ['Enviando...', '¡Mensaje enviado! El diablillo lo recibió.', 'No se pudo enviar ahora. Escribe a vileimpgames@gmail.com.', 'Formulario aún no conectado — cambia YOUR_ACCESS_KEY en el HTML.', 'Marca primero la casilla del captcha.'],
+    ja: ['送信中...', '送信しました！インプに届きました。', '送信できませんでした。vileimpgames@gmail.com までメールしてください。', 'フォームが未設定です。HTMLの YOUR_ACCESS_KEY を置き換えてください。', '先にキャプチャのチェックを入れてください。'],
+    zh: ['发送中...', '发送成功！小恶魔收到了。', '暂时无法发送，请发邮件至 vileimpgames@gmail.com。', '表单尚未配置——请在 HTML 中替换 YOUR_ACCESS_KEY。', '请先勾选验证码。']
   };
   document.addEventListener('submit', function (e) {
     var form = e.target;
@@ -264,6 +265,20 @@
     if (!keyInput || !keyInput.value || keyInput.value === 'YOUR_ACCESS_KEY') {
       status.className = 'contact__status is-err';
       status.textContent = m[3];
+      return;
+    }
+    /* anti-spam: honeypot filled or sent faster than a person types = bot; drop it quietly */
+    var hp = form.querySelector('input[name="botcheck"]');
+    if ((hp && hp.checked) || Date.now() - pageLoadedAt < 3000) {
+      form.reset();
+      status.className = 'contact__status is-ok';
+      status.textContent = m[1];
+      return;
+    }
+    var cap = form.querySelector('textarea[name="h-captcha-response"], input[name="h-captcha-response"]');
+    if (form.querySelector('.h-captcha') && (!cap || !cap.value)) {
+      status.className = 'contact__status is-err';
+      status.textContent = m[4];
       return;
     }
     var subjInput = form.querySelector('input[name="subject"]');
@@ -291,6 +306,7 @@
       status.textContent = m[2];
     }).finally(function () {
       btn.disabled = false;
+      if (window.hcaptcha) { try { window.hcaptcha.reset(); } catch (err) {} }
     });
   });
 
