@@ -24,10 +24,10 @@
   try { var sv = parseInt(localStorage.getItem('vi-music-volume'), 10); if (sv >= 0 && sv <= 100) level = sv; } catch (e) {}
   vol.value = level; a.volume = level / 100;
 
-  /* The music belongs to the Gearbreak pages; once it has started it keeps playing on every page of this visit. */
+  /* The music belongs to the Gearbreak page and its devlogs (body.gb); the studio's pages have none, so leaving them
+     for the studio stops it (syncMusic runs after every page swap). */
   function wants() {
-    if (document.body.classList.contains('gb')) return true;
-    try { return sessionStorage.getItem('vi-music-active') === '1'; } catch (e) { return false; }
+    return document.body.classList.contains('gb');
   }
   var words = { en: ['Music: on', 'Music: off', 'Click anywhere for music', 'Music: paused', 'Play music', 'Pause music'], pt: ['Música: ligada', 'Música: desligada', 'Clique para ouvir a música', 'Música: pausada', 'Tocar música', 'Pausar música'], es: ['Música: activada', 'Música: desactivada', 'Haz clic para escuchar la música', 'Música: en pausa', 'Reproducir música', 'Pausar música'], ja: ['音楽：オン', '音楽：オフ', 'クリックで音楽を再生', '音楽：一時停止中', '音楽を再生', '音楽を一時停止'], zh: ['音乐：开', '音乐：关', '点击任意处播放音乐', '音乐：已暂停', '播放音乐', '暂停音乐'] };
   function label() {
@@ -50,7 +50,6 @@
   }
   function started() {
     playing = true; fadeIn(); label();
-    try { sessionStorage.setItem('vi-music-active', '1'); } catch (e) {}
   }
   function start() {
     if (muted || playing || userPaused || !wants()) return;
