@@ -510,6 +510,9 @@ body.gb .gb-hero__title { text-shadow: none; transform: none; line-height: 0; }
 .feature--gb .feature__name { transform: none; text-shadow: none; line-height: 0; }
 .feature__logo { display: block; width: clamp(240px, 36vw, 440px); height: auto; image-rendering: pixelated; }
 
-/* the screenshots stay straight: a rotated pixel-art picture is resampled and its small text turns to mush */
-.shot--hero { transform: none; }
-.shot--hero:hover, .shot--hero:focus-visible { transform: translate(-3px,-3px); }
+/* The hero screenshot is the game's 1920 px frame; at exactly 960 px (half) the browser averages clean 2x2 blocks, so
+   the small text stays sharp. At the old 974 px it was resampled at a fractional 0.507 and went scratchy. Tilted again. */
+body.gb .shot--hero { max-width: 966px; transform: rotate(1.2deg); }   /* 960 px picture + the 3 px frame each side */
+body.gb .shot--hero:hover, body.gb .shot--hero:focus-visible { transform: rotate(0deg) translate(-3px,-3px); }
+body.gb .gb-hero__inner:has(.shot--hero) { max-width: 1040px; }
+@media (max-width: 860px) { body.gb .shot--hero, body.gb .shot--hero:hover, body.gb .shot--hero:focus-visible { transform: none; } }
