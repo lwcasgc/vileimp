@@ -244,6 +244,56 @@
     else navigate(u, false);
   });
 
+  /* ---------- contact form ---------- */
+  var contactMsg = {
+    en: ['Sending...', 'Message sent! The imp got it.', 'Could not send right now. Please email vileimpgames@gmail.com.', 'Form not connected yet — replace YOUR_ACCESS_KEY in the HTML.'],
+    pt: ['Enviando...', 'Mensagem enviada! O diabinho recebeu.', 'Não foi possível enviar agora. Envie para vileimpgames@gmail.com.', 'Formulário ainda não conectado — troque YOUR_ACCESS_KEY no HTML.'],
+    es: ['Enviando...', '¡Mensaje enviado! El diablillo lo recibió.', 'No se pudo enviar ahora. Escribe a vileimpgames@gmail.com.', 'Formulario aún no conectado — cambia YOUR_ACCESS_KEY en el HTML.'],
+    ja: ['送信中...', '送信しました！インプに届きました。', '送信できませんでした。vileimpgames@gmail.com までメールしてください。', 'フォームが未設定です。HTMLの YOUR_ACCESS_KEY を置き換えてください。'],
+    zh: ['发送中...', '发送成功！小恶魔收到了。', '暂时无法发送，请发邮件至 vileimpgames@gmail.com。', '表单尚未配置——请在 HTML 中替换 YOUR_ACCESS_KEY。']
+  };
+  document.addEventListener('submit', function (e) {
+    var form = e.target;
+    if (!form || form.id !== 'contact-form') return;
+    e.preventDefault();
+    var status = form.querySelector('#contact-status');
+    var btn = form.querySelector('.contact__submit');
+    var keyInput = form.querySelector('input[name="access_key"]');
+    var lang = document.documentElement.lang.slice(0, 2);
+    var m = contactMsg[lang] || contactMsg.en;
+    if (!keyInput || !keyInput.value || keyInput.value === 'YOUR_ACCESS_KEY') {
+      status.className = 'contact__status is-err';
+      status.textContent = m[3];
+      return;
+    }
+    var subjInput = form.querySelector('input[name="subject"]');
+    var proj = form.querySelector('input[name="project"]:checked') || form.querySelector('input[name="project"][type="hidden"]');
+    var topic = form.querySelector('input[name="topic"]:checked');
+    if (subjInput) {
+      subjInput.value = '[' + (proj ? proj.value : 'Vile Imp') + '] ' + (topic ? topic.value : 'Message');
+    }
+    btn.disabled = true;
+    status.className = 'contact__status';
+    status.textContent = m[0];
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function (r) {
+      return r.json().then(function (data) { return { ok: r.ok && data && data.success }; });
+    }).then(function (res) {
+      if (!res.ok) throw new Error('send failed');
+      form.reset();
+      status.className = 'contact__status is-ok';
+      status.textContent = m[1];
+    }).catch(function () {
+      status.className = 'contact__status is-err';
+      status.textContent = m[2];
+    }).finally(function () {
+      btn.disabled = false;
+    });
+  });
+
   initLightbox();
   syncMusic();
 })();

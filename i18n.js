@@ -76,6 +76,19 @@
     'studio.v3': "Fique melhor. O melhor upgrade é o que está nas suas mãos.",
     'contact.title': 'Diz oi.',
     'contact.sub': "Dúvidas, bugs ou um recorde para se gabar? O diabinho está ouvindo.",
+    'contact.subjectLabel': 'Assunto',
+    'contact.subjectStudio': 'Vile Imp (Estúdio)',
+    'contact.topicLabel': 'Tipo de mensagem',
+    'contact.topicSuggestion': 'Sugestão',
+    'contact.topicBug': 'Bug report',
+    'contact.topicGeneral': 'Mensagem geral',
+    'contact.nameLabel': 'Nome',
+    'contact.namePh': 'Seu nome (opcional)',
+    'contact.emailLabel': 'E-mail',
+    'contact.emailPh': 'voce@exemplo.com',
+    'contact.msgLabel': 'Mensagem',
+    'contact.msgPh': 'Conte para o diabinho o que você tem em mente...',
+    'contact.send': 'Enviar mensagem',
     'footer': "Todos os direitos reservados. O diabinho só é mau com o tédio."
   };
   var es = {
@@ -98,6 +111,19 @@
     "studio.v3": "Supérate. La mejor mejora está en tus manos.",
     "contact.title": "Saluda.",
     "contact.sub": "¿Preguntas, bugs o un récord para presumir? El diablillo te escucha.",
+    "contact.subjectLabel": "Asunto",
+    "contact.subjectStudio": "Vile Imp (Estudio)",
+    "contact.topicLabel": "Tipo de mensaje",
+    "contact.topicSuggestion": "Sugerencia",
+    "contact.topicBug": "Reporte de bug",
+    "contact.topicGeneral": "Mensaje general",
+    "contact.nameLabel": "Nombre",
+    "contact.namePh": "Tu nombre (opcional)",
+    "contact.emailLabel": "Correo",
+    "contact.emailPh": "tu@ejemplo.com",
+    "contact.msgLabel": "Mensaje",
+    "contact.msgPh": "Cuéntale al diablillo lo que tienes en mente...",
+    "contact.send": "Enviar mensaje",
     "footer": "Todos los derechos reservados. El diablillo solo es malo con el aburrimiento.",
     "gb.back": "Todos los juegos",
     "gb.g1": "Beat 'em up",
@@ -203,6 +229,19 @@
     "studio.v3": "うまくなる。最高のアップグレードは、あなたの手の中にあります。",
     "contact.title": "声をかけてね。",
     "contact.sub": "質問、バグ報告、それとも自慢したいハイスコア？インプが聞いています。",
+    "contact.subjectLabel": "対象",
+    "contact.subjectStudio": "Vile Imp（スタジオ）",
+    "contact.topicLabel": "メッセージの種類",
+    "contact.topicSuggestion": "提案",
+    "contact.topicBug": "バグ報告",
+    "contact.topicGeneral": "一般的なメッセージ",
+    "contact.nameLabel": "お名前",
+    "contact.namePh": "お名前（任意）",
+    "contact.emailLabel": "メール",
+    "contact.emailPh": "you@example.com",
+    "contact.msgLabel": "メッセージ",
+    "contact.msgPh": "インプに伝えたいことを書いてください...",
+    "contact.send": "送信する",
     "footer": "すべての権利を保有します。インプが意地悪するのは退屈にだけ。",
     "gb.back": "ゲーム一覧へ",
     "gb.g1": "ベルトスクロールアクション",
@@ -308,6 +347,19 @@
     "studio.v3": "越玩越强。最好的升级，就在你手里。",
     "contact.title": "打个招呼吧。",
     "contact.sub": "有问题、要报 bug，还是想炫耀高分？小恶魔在听。",
+    "contact.subjectLabel": "主题",
+    "contact.subjectStudio": "Vile Imp（工作室）",
+    "contact.topicLabel": "消息类型",
+    "contact.topicSuggestion": "建议",
+    "contact.topicBug": "Bug 反馈",
+    "contact.topicGeneral": "一般消息",
+    "contact.nameLabel": "称呼",
+    "contact.namePh": "你的名字（选填）",
+    "contact.emailLabel": "邮箱",
+    "contact.emailPh": "you@example.com",
+    "contact.msgLabel": "内容",
+    "contact.msgPh": "有什么想对小恶魔说的...",
+    "contact.send": "发送消息",
     "footer": "保留所有权利。小恶魔只对无聊使坏。",
     "gb.back": "全部游戏",
     "gb.g1": "清版动作",
@@ -404,13 +456,15 @@
     zh: { dict: zh, html: 'zh-CN', short: 'ZH', name: '简体中文', flag: 'cn', label: '语言' }
   };
 
-  var nodes, alts, en = {};
+  var nodes, alts, phs, en = {};
   /* Reads the English source text of whatever is on the page (also called after site.js swaps in a new page). */
   function collect() {
     nodes = document.querySelectorAll('[data-i18n]');
     alts = document.querySelectorAll('[data-i18n-alt]');
+    phs = document.querySelectorAll('[data-i18n-placeholder]');
     nodes.forEach(function (n) { if (!(n.dataset.i18n in en)) en[n.dataset.i18n] = n.innerHTML; });
     alts.forEach(function (n) { if (!(n.dataset.i18nAlt in en)) en[n.dataset.i18nAlt] = n.alt; });
+    phs.forEach(function (n) { if (!(n.dataset.i18nPlaceholder in en)) en[n.dataset.i18nPlaceholder] = n.getAttribute('placeholder') || ''; });
   }
   collect();
   LANGS.en.dict = en;
@@ -427,6 +481,7 @@
     current = code;
     nodes.forEach(function (n) { var k = n.dataset.i18n; n.innerHTML = L.dict[k] || en[k]; });
     alts.forEach(function (n) { var k = n.dataset.i18nAlt; n.alt = L.dict[k] || en[k]; });
+    phs.forEach(function (n) { var k = n.dataset.i18nPlaceholder; n.setAttribute('placeholder', L.dict[k] || en[k]); });
     document.documentElement.lang = L.html;
     var t = document.documentElement.getAttribute('data-title-' + code) || document.documentElement.getAttribute('data-title-en');
     if (t) document.title = t;
