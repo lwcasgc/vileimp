@@ -587,5 +587,5 @@ html:has(body.gb) { --sb-track: #ffffff; --sb-thumb: #ea7436; --sb-thumb-hover: 
 }
 
 body.gb .feature__facts li::before { content: ''; width: 14px; height: 14px; top: .3em; background: currentColor; -webkit-mask: url(assets/gearbreak/star.svg) center / contain no-repeat; mask: url(assets/gearbreak/star.svg) center / contain no-repeat; }
-body.gb .shot-grid figcaption strong::before { content: '\00b7'; display: inline-block; margin-right: 6px; color: var(--red); }
+body.gb .shot-grid figcaption strong::before { content: '-'; display: inline-block; margin-right: 6px; color: var(--red); }
 body.gb .feature__facts li::before { background: var(--red); }
