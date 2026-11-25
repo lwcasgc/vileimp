@@ -122,10 +122,15 @@
   }
 
   /* ---------- page swapping ---------- */
+  /* Pages are keyed by their path from the site root. The Gearbreak devlogs live in gearbreak/ (they carry
+     <base href="../"> so their links and assets match the root pages); a bare blog-*.html at the root is only a
+     redirect stub, so it gets a normal page load. */
+  var root = new URL('./', document.baseURI).pathname;
   function pageOf(u) {
-    var p = u.pathname.split('/').pop();
+    if (u.pathname.indexOf(root) !== 0) return null;
+    var p = u.pathname.slice(root.length);
     if (p === '' || p === 'index.html') return 'index';
-    if (p === 'gearbreak.html' || /^blog-[\w-]+\.html$/.test(p)) return p;
+    if (p === 'gearbreak.html' || /^gearbreak\/[\w-]+\.html$/.test(p)) return p;
     return null;
   }
   var current = pageOf(location);
@@ -135,7 +140,16 @@
 
   function themeOf(page) { return page === 'index' ? 'studio' : 'game'; }
 
-  function swap(doc) {
+  /* Keep the page's <base> in step with the page swapped in, so the shell's relative links still point at the root. */
+  function syncBase(doc, href) {
+    var b = document.head.querySelector('base'), nb = doc.head.querySelector('base');
+    if (!nb) { if (b) b.remove(); return; }
+    if (!b) { b = document.createElement('base'); document.head.insertBefore(b, document.head.firstChild); }
+    b.setAttribute('href', new URL(nb.getAttribute('href'), href).href);
+  }
+
+  function swap(doc, href) {
+    syncBase(doc, href);
     document.title = doc.title;
     document.body.className = doc.body.className;
     var h = document.documentElement, nh = doc.documentElement;
@@ -187,8 +201,8 @@
         if (mine !== token) { if (cover) cover.remove(); return; }
         var doc = new DOMParser().parseFromString(html, 'text/html');
         if (!doc.querySelector('main')) throw new Error('no main');
-        swap(doc);
-        if (push) history.pushState(null, '', u.href);
+        if (push) history.pushState(null, '', u.href);   /* first, so the new main resolves against the new address */
+        swap(doc, u.href);
         current = to;
         if (window.viI18n) window.viI18n.refresh();
         var lang = document.getElementById('lang');

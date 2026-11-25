@@ -517,3 +517,20 @@ body.gb .gb-hero__title { text-shadow: none; transform: none; line-height: 0; }
 body.gb .shot--hero { max-width: 966px; transform: none; }   /* 960 px picture + the 3 px frame each side */
 body.gb .shot--hero:hover, body.gb .shot--hero:focus-visible { transform: translate(-3px,-3px); }
 body.gb .gb-hero__inner:has(.shot--hero) { max-width: 1040px; }
+
+/* ===== Scrollbars: the studio's black + red, the Gearbreak pages' paper + ink + orange (devlogs included) ===== */
+html { --sb-track: #0a0a0a; --sb-thumb: #f72222; --sb-thumb-hover: #ff4a4a; --sb-edge: #0a0a0a; --sb-radius: 999px; --sb-line: #1c1c1c; }
+html:has(body.gb) { --sb-track: #ffffff; --sb-thumb: #ea7436; --sb-thumb-hover: #bb5d2b; --sb-edge: #181121; --sb-radius: 4px; --sb-line: #181121; }
+@supports selector(::-webkit-scrollbar) {
+  ::-webkit-scrollbar { width: 14px; height: 14px; }
+  ::-webkit-scrollbar-track { background: var(--sb-track); box-shadow: inset 2px 0 0 var(--sb-line); }
+  ::-webkit-scrollbar-thumb { background: var(--sb-thumb); border: 3px solid var(--sb-track); border-radius: var(--sb-radius); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--sb-thumb-hover); }
+  ::-webkit-scrollbar-thumb:active { background: var(--sb-thumb-hover); }
+  ::-webkit-scrollbar-corner { background: var(--sb-track); }
+  /* the game's square, ink-outlined parts */
+  html:has(body.gb) ::-webkit-scrollbar-thumb { border: 2px solid var(--sb-edge); box-shadow: inset 0 0 0 2px var(--sb-track); }
+}
+@supports not selector(::-webkit-scrollbar) {
+  html { scrollbar-color: var(--sb-thumb) var(--sb-track); }
+}
