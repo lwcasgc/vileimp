@@ -121,7 +121,7 @@ a { color: inherit; }
 
 /* Footer */
 .footer { padding: 56px clamp(20px, 6vw, 96px); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; color: var(--grey); font-size: .9rem; }
-.footer__logo { width: 160px; }
+.footer__logo { width: 160px; height: auto; image-rendering: auto; }   /* smooth sticker, even on the Gearbreak footer whose checker background is pixelated */
 
 /* Responsive */
 @media (max-width: 860px) {
