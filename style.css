@@ -268,7 +268,7 @@ body.gb .shot-grid figcaption strong { color: var(--gb-ink); }
 body.gb .shot-grid figcaption strong::before { color: var(--gb-orange); }
 
 /* features: ink panel */
-body.gb .gb-features { background: var(--gb-ink); color: var(--gb-paper); }
+body.gb .gb-features { background: var(--gb-ink) url('assets/gearbreak/hero_checker.png'); background-size: 64px 64px; image-rendering: pixelated; color: var(--gb-paper); }   /* the hero's checker */
 body.gb .section__title--dark { color: var(--gb-cyan); }
 body.gb .feat-grid li { border-top-color: var(--gb-orange); font-weight: 400; }
 body.gb .feat-grid li::before { color: var(--gb-gold); font-weight: 400; }
