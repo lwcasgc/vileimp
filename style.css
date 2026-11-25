@@ -233,7 +233,7 @@ body.gb .btn--dark:hover, body.gb .btn--dark:focus-visible { box-shadow: 7px 7px
 
 /* hero: ink screen like the game's menu, cyan title, orange rim */
 body.gb .gb-hero { background: var(--gb-ink); border-bottom: 6px solid var(--gb-orange);
-  background-image: repeating-linear-gradient(-45deg, rgba(67,240,255,.04) 0 14px, transparent 14px 28px); }
+  background-image: url('assets/gearbreak/hero_checker.png'); background-size: 64px 64px; image-rendering: pixelated; }   /* a square checker in the floor tile's greys: hard pixels, not a smooth diagonal stripe */
 body.gb .gear { fill: var(--gb-ink2); opacity: 1; }
 body.gb .gb-hero__gear { opacity: .9; }
 body.gb .gb-hero__title { color: var(--gb-paper); -webkit-text-stroke: 0; text-shadow: 6px 6px 0 var(--gb-orange), 10px 10px 0 #000; font-weight: 400; letter-spacing: .02em; }
