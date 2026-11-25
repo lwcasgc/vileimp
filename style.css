@@ -449,5 +449,43 @@ html.vt-in.vt-game::after { content: ''; position: fixed; left: 50%; top: 50%; w
    in the right regional form for each language */
 html:lang(ja) body { font-family: 'Rubik', 'Yu Gothic UI', 'Yu Gothic', Meiryo, 'Hiragino Sans', 'Noto Sans JP', sans-serif; }
 html:lang(ja) body.gb, html:lang(ja) .feature--gb { font-family: 'Dead Revolver', 'Fusion Pixel JA', 'Yu Gothic UI', 'Yu Gothic', Meiryo, 'Hiragino Sans', 'Noto Sans JP', sans-serif; }
-html:lang(zh-CN) body { font-family: 'Rubik', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', sans-serif; }
-html:lang(zh-CN) body.gb, html:lang(zh-CN) .feature--gb { font-family: 'Dead Revolver', 'Fusion Pixel SC', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', sans-serif; }
+html:lang(zh-CN) body { font-family: 'Rubik', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', 'Noto Sans CJK SC', 'Source Han Sans SC', 'WenQuanYi Micro Hei', sans-serif; }
+html:lang(zh-CN) body.gb, html:lang(zh-CN) .feature--gb { font-family: 'Dead Revolver', 'Fusion Pixel SC', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', 'Noto Sans CJK SC', 'Source Han Sans SC', 'WenQuanYi Micro Hei', sans-serif; }
+html:lang(zh-CN) .section__title, html:lang(zh-CN) .contact__big, html:lang(zh-CN) .gb-hero__title, html:lang(zh-CN) .gb-features .section__title { letter-spacing: 0; line-height: 1.15; }
+html:lang(zh-CN) .hero__tag { max-width: 52ch; }
+html:lang(zh-CN) .studio__lead { max-width: 48ch; }
+html:lang(zh-CN) .gb-hero__tagline { max-width: 56ch; }
+html:lang(zh-CN) .crew__quote { max-width: 80ch; }
+html:lang(zh-CN) .crew__bio { max-width: 108ch; }
+html:lang(zh-CN) .pets__lead { max-width: 104ch; }
+html:lang(zh-CN) .pet__line { max-width: 64ch; }
+html:lang(ja) body { line-break: strict; word-break: auto-phrase; overflow-wrap: anywhere; }
+html:lang(ja) :is(p, blockquote, figcaption, li, dd) { text-wrap: pretty; }
+html:lang(ja) :is(h1, h2, h3, .gb-hero__tagline, .contact__sub, .studio__lead) { text-wrap: balance; }
+html:lang(ja) .contact__big { letter-spacing: 0; line-height: 1.05; font-size: clamp(3rem, 12vw, 9rem); -webkit-text-stroke-width: 3px; }
+html:lang(ja) :is(.section__title, .feature__name, .gb-hero__title) { letter-spacing: 0; }
+html:lang(ja) :is(.crew__tags, .pet__species) { letter-spacing: .02em; }
+html:lang(ja) .feature__kicker { letter-spacing: .04em; }
+html:lang(ja) .hero__tag { max-width: 52ch; }
+html:lang(ja) .studio__lead { max-width: 48ch; }
+html:lang(ja) .gb-hero__tagline { max-width: 56ch; }
+html:lang(ja) .crew__quote { max-width: 80ch; }
+html:lang(ja) .crew__bio { max-width: 108ch; }
+html:lang(ja) .pets__lead { max-width: 104ch; }
+html:lang(ja) .pet__line { max-width: 64ch; }
+/* seletor de idioma: as opcoes ja/zh usam a fonte pixel propria mesmo com a pagina em outro idioma */
+body.gb .lang__menu button:lang(ja) { font-family: 'Fusion Pixel JA', 'Yu Gothic UI', 'Yu Gothic', Meiryo, 'Hiragino Sans', 'Noto Sans JP', sans-serif; }
+body.gb .lang__menu button:lang(zh-CN) { font-family: 'Fusion Pixel SC', 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', 'Noto Sans CJK SC', sans-serif; }
+
+/* Dev blog (Gearbreak page): gear logo on a plain paper tile */
+body.gb .gb-blog { background: var(--gb-paper); color: var(--gb-ink); }
+.post { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: clamp(20px, 4vw, 48px); align-items: start; max-width: 960px; }
+.post__logo { width: 160px; height: 160px; display: grid; place-items: center; background: var(--gb-paper); border: 3px solid var(--gb-ink); border-radius: 6px; box-shadow: 6px 6px 0 var(--gb-orange); }
+.post__logo img { width: 96px; height: 96px; image-rendering: pixelated; }
+.post__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-bottom: 10px; font-size: .9rem; letter-spacing: .04em; }
+.post__tag { background: var(--gb-ink); color: var(--gb-paper); padding: 3px 10px; border-radius: 4px; }
+.post__title { font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.1; margin-bottom: 16px; }
+.post__body p { max-width: 62ch; margin-bottom: 14px; font-size: 1.05rem; }
+.post__sign { margin-top: 20px; opacity: .75; }
+@media (max-width: 700px) { .post { grid-template-columns: 1fr; } .post__logo { width: 120px; height: 120px; } .post__logo img { width: 72px; height: 72px; } }
+html:lang(ja) .post__body p, html:lang(zh-CN) .post__body p { max-width: 40em; }
