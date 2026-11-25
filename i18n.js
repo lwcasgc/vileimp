@@ -404,11 +404,15 @@
     zh: { dict: zh, html: 'zh-CN', short: 'ZH', name: '简体中文', flag: 'cn', label: '语言' }
   };
 
-  var nodes = document.querySelectorAll('[data-i18n]');
-  var en = {};
-  nodes.forEach(function (n) { en[n.dataset.i18n] = n.innerHTML; });
-  var alts = document.querySelectorAll('[data-i18n-alt]');
-  alts.forEach(function (n) { en[n.dataset.i18nAlt] = n.alt; });
+  var nodes, alts, en = {};
+  /* Reads the English source text of whatever is on the page (also called after site.js swaps in a new page). */
+  function collect() {
+    nodes = document.querySelectorAll('[data-i18n]');
+    alts = document.querySelectorAll('[data-i18n-alt]');
+    nodes.forEach(function (n) { if (!(n.dataset.i18n in en)) en[n.dataset.i18n] = n.innerHTML; });
+    alts.forEach(function (n) { if (!(n.dataset.i18nAlt in en)) en[n.dataset.i18nAlt] = n.alt; });
+  }
+  collect();
   LANGS.en.dict = en;
 
   var box = document.getElementById('lang');
@@ -456,6 +460,8 @@
 
   var saved = null;
   try { saved = localStorage.getItem('vi-lang'); } catch (e) {}
+  function stampYear() { var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear(); }
   apply(LANGS[saved] ? saved : 'en');
-  document.getElementById('year').textContent = new Date().getFullYear();
+  stampYear();
+  window.viI18n = { refresh: function () { collect(); apply(current); stampYear(); } };
 })();
