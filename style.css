@@ -556,12 +556,12 @@ a.post__logo:hover { transform: translate(-2px,-2px); box-shadow: 8px 8px 0 var(
 .post__more { margin-top: 6px; margin-bottom: 0; }
 
 /* the game's logo picture as the page title: pixel art, so no smoothing; whole multiples keep it sharp */
-.gb-hero__logo { display: block; width: min(100%, 990px); height: auto; margin: 0 auto; image-rendering: pixelated; }
+.gb-hero__logo { display: block; width: min(100%, 990px); height: auto; margin: 0 auto; image-rendering: auto; }
 body.gb .gb-hero__title { text-shadow: none; transform: none; line-height: 0; }
 
 /* the game's logo picture on the Games card (pixel art: no tilt, no smoothing, no text shadow) */
 .feature--gb .feature__name { transform: none; text-shadow: none; line-height: 0; }
-.feature__logo { display: block; width: clamp(240px, 36vw, 440px); height: auto; image-rendering: pixelated; }
+.feature__logo { display: block; width: clamp(240px, 36vw, 440px); height: auto; image-rendering: auto; }
 
 /* The hero screenshot stays straight: a tilted pixel-art picture is resampled and comes out jagged. It is the game's
    1920 px frame shown at exactly 960 px (half), so the browser averages clean 2x2 blocks. */
